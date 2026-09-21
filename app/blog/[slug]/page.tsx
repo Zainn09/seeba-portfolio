@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
   if (!md) notFound();
 
   const { body, faqs } = extractFaqs(md);
-  const { html, headings } = await markdownToHtml(body);
+  const { html, headings } = await markdownToHtml(body, { stripH1: true });
   const related = relatedArticles(article, 3);
   const hub = hubBySlug(article.hub);
   const sameHub = articlesByHub(article.hub)

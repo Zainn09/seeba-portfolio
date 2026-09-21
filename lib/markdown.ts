@@ -14,9 +14,19 @@ export type Heading = { id: string; text: string; level: number; children: Headi
  * and raw HTML callouts) into an HTML string. Returns headings so the article
  * page can render a nested table of contents.
  */
-export async function markdownToHtml(markdown: string): Promise<{ html: string; headings: Heading[] }> {
+export async function markdownToHtml(
+  markdown: string,
+  opts: { stripH1?: boolean } = {}
+): Promise<{ html: string; headings: Heading[] }> {
   const headings: Heading[] = [];
   const stack: Heading[] = [];
+
+  // The article page renders its own <h1>; drop the lead `# Title` to keep a
+  // single H1 per page. FAQ/outro parsing already happens upstream on `md`.
+  let source = markdown;
+  if (opts.stripH1) {
+    source = markdown.replace(/^#\s+[^\n]+\n+/, "");
+  }
 
   const file = await unified()
     .use(remarkParse)
@@ -43,7 +53,7 @@ export async function markdownToHtml(markdown: string): Promise<{ html: string; 
     .use(rehypeSlug)
     .use(rehypeHighlight, { detect: false, ignoreMissing: true })
     .use(rehypeStringify)
-    .process(markdown);
+    .process(source);
 
   // match slug ids back onto the extracted headings
   const html = String(file);

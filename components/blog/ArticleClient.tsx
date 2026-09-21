@@ -101,7 +101,10 @@ export function FaqSection({ faqs }: { faqs: Faq[] }) {
 
 export function Toc({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null;
-  const visible = headings.filter((h) => h.level <= 3);
+  const visible = headings.filter(
+    (h) => h.level <= 3 && !/^table of contents$/i.test(h.text)
+  );
+  if (visible.length === 0) return null;
 
   return (
     <nav aria-label="Table of contents" className="rounded-xl border border-line bg-raised p-5">
