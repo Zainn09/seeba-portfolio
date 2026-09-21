@@ -2,6 +2,7 @@ import { pythonAdditions } from "./a-python";
 import { aimlAdditions } from "./b-aiml";
 import { projectsAdditions } from "./c-projects";
 import { softwareAdditions } from "./d-software";
+import { problemAdditions } from "./e-butnot";
 
 /**
  * Aggregated additive sections keyed by article slug. The compiler splices
@@ -14,5 +15,6 @@ export const additions: AdditionsMap = {
   ...aimlAdditions,
   ...projectsAdditions,
   ...softwareAdditions,
+  ...problemAdditions,
   // further pillars appended as they are authored
 };
