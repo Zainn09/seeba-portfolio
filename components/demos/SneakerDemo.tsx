@@ -54,28 +54,22 @@ export default function SneakerDemo() {
     // cycle steps, with browse/detail getting extra dwell
     const dwell = (s: number) => (s === 2 || s === 3 ? 2600 : 2000);
     let cancelled = false;
+    let current = 0;
     let t: ReturnType<typeof setTimeout>;
     const run = () => {
       if (cancelled) return;
-      setStep((s) => {
-        const next = (s + 1) % STEPS.length;
-        if (next === 4 && cart.length === 0) {
-          // add an item when we first enter the cart step
-          setCart([0]);
-        }
-        return next;
-      });
-      t = setTimeout(run, dwell(STEPS[(0) % STEPS.length]));
+      const next = (current + 1) % STEPS.length;
+      current = next;
+      setStep(next);
+      if (next === 4) setCart([0]); // item drops into the cart on first entry
+      t = setTimeout(run, dwell(next));
     };
-    const first = setTimeout(() => {
-      t = setTimeout(run, dwell(1));
-    }, dwell(0));
+    t = setTimeout(run, dwell(0));
     return () => {
       cancelled = true;
-      clearTimeout(first);
       clearTimeout(t);
     };
-  }, [reduce, cart.length]);
+  }, [reduce]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-6 rounded-xl border border-line bg-[#0c101c] p-6 sm:p-8">

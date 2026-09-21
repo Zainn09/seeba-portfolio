@@ -14,7 +14,7 @@ export function Console({
   paused = false,
   cursorColor = "var(--accent)",
 }: {
-  lines: { text: string; tone?: "in" | "out" | "dim" | "ok" }[];
+  lines: { text: string; tone?: "in" | "out" | "dim" | "ok" | "" }[];
   speed?: number;
   className?: string;
   paused?: boolean;

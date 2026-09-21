@@ -246,7 +246,7 @@ export const articles: Article[] = [
   },
   {
     slug: "machine-learning-basics",
-    title: "Machine Learning Basics: What "Learning" Means to a Machine",
+    title: "Machine Learning Basics: What “Learning” Means to a Machine",
     category: "AI ML",
     hub: "ai-ml",
     primaryKeyword: "machine learning basics",
@@ -270,7 +270,7 @@ export const articles: Article[] = [
   },
   {
     slug: "what-is-a-dataset",
-    title: "What a Dataset Is (And Why "Data" Is a Skill)",
+    title: "What a Dataset Is (And Why “Data” Is a Skill)",
     category: "AI ML",
     hub: "ai-ml",
     primaryKeyword: "what is a dataset",
@@ -278,7 +278,7 @@ export const articles: Article[] = [
     searchIntent: "Informational — concept",
     audience: "Beginners learning the data side of ML",
     readingTime: 5,
-    excerpt: "Datasets are the raw material of machine learning. What they look like, what "clean" means, and why data prep eats most of the time.",
+    excerpt: "Datasets are the raw material of machine learning. What they look like, what “clean” means, and why data prep eats most of the time.",
   },
   {
     slug: "linear-regression-explained",
@@ -386,7 +386,7 @@ export const articles: Article[] = [
     searchIntent: "How-to — technique",
     audience: "Beginners losing hours to broken code",
     readingTime: 7,
-    excerpt: "Print statements are a start, not the whole toolset. A calm, systematic route from "it's broken" to "it's fixed" — and why reading the error matters.",
+    excerpt: "Print statements are a start, not the whole toolset. A calm, systematic route from “it's broken” to “it's fixed” — and why reading the error matters.",
   },
   {
     slug: "programming-logic",
@@ -494,7 +494,7 @@ export const articles: Article[] = [
     searchIntent: "How-to — preparation",
     audience: "Students targeting first developer internships",
     readingTime: 7,
-    excerpt: "Projects over certificates, the fundamentals interviewers actually test, and how to present "student" work without overselling it.",
+    excerpt: "Projects over certificates, the fundamentals interviewers actually test, and how to present “student” work without overselling it.",
   },
   {
     slug: "developer-portfolio-guide",

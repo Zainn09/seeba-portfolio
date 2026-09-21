@@ -45,7 +45,7 @@ export const SEO = {
     "AI/ML enthusiast",
     "problem solving",
     "software development",
-  ],
+  ] as string[],
   twitterHandle: "@YOU", // placeholder — YOUR_TWITTER_HANDLE
 } as const;
 
