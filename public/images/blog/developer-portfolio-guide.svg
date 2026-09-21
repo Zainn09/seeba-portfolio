@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#081013"/>
+  <rect width="1600" height="900" fill="url(#g)"/><path d="M 180 640 L 252 474.7130970377325 L 324 342.3357743415563 L 396 269.22512402586955 L 468 269.93790026628585 L 540 344.33218518258997 L 612 477.59564551114465 L 684 643.1947539995165 L 756 808.1577684520439 L 828 939.6395966819541 L 900 1011.4614447127369 L 972 1009.323166372692 L 1044 933.650505271275 L 1116 799.5103267791463 L 1188 633.610717815947 L 1260 468.9832519633653 L 1332 338.40621173732177 L 1404 267.878242579244" fill="none" stroke="#7DE2D1" stroke-width="3" stroke-opacity="0.9"/><circle cx="180" cy="640" r="9" fill="#7DE2D1" opacity="0.9"/><circle cx="252" cy="474.7130970377325" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="324" cy="342.3357743415563" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="396" cy="269.22512402586955" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="468" cy="269.93790026628585" r="9" fill="#7DE2D1" opacity="0.9"/><circle cx="540" cy="344.33218518258997" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="612" cy="477.59564551114465" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="684" cy="643.1947539995165" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="756" cy="808.1577684520439" r="9" fill="#7DE2D1" opacity="0.9"/><circle cx="828" cy="939.6395966819541" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="900" cy="1011.4614447127369" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="972" cy="1009.323166372692" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="1044" cy="933.650505271275" r="9" fill="#7DE2D1" opacity="0.9"/><circle cx="1116" cy="799.5103267791463" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="1188" cy="633.610717815947" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="1260" cy="468.9832519633653" r="5" fill="#9BA6A5" opacity="0.9"/><circle cx="1332" cy="338.40621173732177" r="9" fill="#7DE2D1" opacity="0.9"/><circle cx="1404" cy="267.878242579244" r="5" fill="#9BA6A5" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#7DE2D1"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#081013">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">STUDENT JOURNEY / HOW TO MAKE A DEVELOPER PORTFOLIO</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">How</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">to</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Build</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">a</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Developer<tspan fill="#7DE2D1">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>

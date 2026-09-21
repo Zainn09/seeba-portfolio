@@ -30,7 +30,7 @@ export const allArticles: ArticleMeta[] = rawArticles.map((a, i) => {
     publishDate: dateForIndex(i),
     wordCount: a.readingTime * 195,
     imageAlt: `${a.title} — featured visual by Abdul Haseeb`,
-    origPath: `/images/blog/${a.slug}.png`,
+    origPath: `/images/blog/${a.slug}.webp`, // optimized on-page image
     visual,
   };
 });

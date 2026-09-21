@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#0A0C18"/>
+  <rect width="1600" height="900" fill="url(#g)"/><line x1="355" y1="626" x2="527" y2="607" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1254" y1="470" x2="484" y2="593" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="308" y1="384" x2="1350" y2="540" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="527" y1="607" x2="278" y2="211" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="484" y1="593" x2="1024" y2="506" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1350" y1="540" x2="608" y2="289" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="278" y1="211" x2="458" y2="500" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1024" y1="506" x2="281" y2="198" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="608" y1="289" x2="911" y2="501" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="458" y1="500" x2="579" y2="196" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="281" y1="198" x2="613" y2="309" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="911" y1="501" x2="355" y2="626" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="579" y1="196" x2="1254" y2="470" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="613" y1="309" x2="308" y2="384" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="355" cy="626" r="10.0047415595036" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1254" cy="470" r="6.162556013092399" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="308" cy="384" r="6.421082902001217" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="527" cy="607" r="12.278417827095836" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="484" cy="593" r="8.485545684583485" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1350" cy="540" r="12.039585110265762" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="278" cy="211" r="6.634316630661488" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1024" cy="506" r="7.118960656691343" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="608" cy="289" r="11.26894339825958" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="458" cy="500" r="9.299346924526617" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="281" cy="198" r="7.448660037247464" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="911" cy="501" r="10.855547093553469" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="579" cy="196" r="4.182257049717009" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="613" cy="309" r="10.678064449224621" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#A7B5FF"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0C18">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">AI ML / WHAT IS ARTIFICIAL INTELLIGENCE</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">What</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Artificial</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Intelligence</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Actually</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Is<tspan fill="#A7B5FF">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>

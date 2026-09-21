@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#0A0C18"/>
+  <rect width="1600" height="900" fill="url(#g)"/><line x1="823" y1="358" x2="1081" y2="307" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="859" y1="676" x2="651" y2="367" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1153" y1="497" x2="1380" y2="386" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1081" y1="307" x2="1275" y2="669" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="651" y1="367" x2="873" y2="216" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1380" y1="386" x2="257" y2="186" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1275" y1="669" x2="1164" y2="205" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="873" y1="216" x2="461" y2="599" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="257" y1="186" x2="479" y2="226" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1164" y1="205" x2="527" y2="171" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="461" y1="599" x2="689" y2="212" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="479" y1="226" x2="823" y2="358" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="527" y1="171" x2="859" y2="676" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="689" y1="212" x2="1153" y2="497" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="823" cy="358" r="6.614838229725137" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="859" cy="676" r="10.154461201047525" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1153" cy="497" r="8.507767828181386" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1081" cy="307" r="4.009471244644374" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="651" cy="367" r="6.93535555806011" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1380" cy="386" r="11.618375044548884" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1275" cy="669" r="11.985032954020426" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="873" cy="216" r="8.23671427089721" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="257" cy="186" r="11.016455437988043" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1164" cy="205" r="8.273291546851397" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="461" cy="599" r="8.539548164000735" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="479" cy="226" r="6.277799950214103" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="527" cy="171" r="10.758943176362664" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="689" cy="212" r="10.301568744005635" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#A7B5FF"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0C18">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">AI ML / MACHINE LEARNING MISTAKES BEGINNERS</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">6</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Mistakes</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">When</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Learning</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Machine<tspan fill="#A7B5FF">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#0A0C18"/>
+  <rect width="1600" height="900" fill="url(#g)"/><line x1="968" y1="452" x2="814" y2="294" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1354" y1="389" x2="524" y2="552" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="351" y1="359" x2="502" y2="204" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="814" y1="294" x2="988" y2="209" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="524" y1="552" x2="919" y2="525" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="502" y1="204" x2="1233" y2="646" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="988" y1="209" x2="665" y2="296" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="919" y1="525" x2="524" y2="445" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1233" y1="646" x2="280" y2="481" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="665" y1="296" x2="1232" y2="244" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="524" y1="445" x2="751" y2="416" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="280" y1="481" x2="968" y2="452" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1232" y1="244" x2="1354" y2="389" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="751" y1="416" x2="351" y2="359" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="968" cy="452" r="10.812213515397161" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1354" cy="389" r="4.720990532077849" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="351" cy="359" r="12.064737571403384" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="814" cy="294" r="9.961280488409102" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="524" cy="552" r="4.171407220885158" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="502" cy="204" r="6.330268656602129" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="988" cy="209" r="11.399775351397693" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="919" cy="525" r="7.9053524089977145" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1233" cy="646" r="9.606632553273812" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="665" cy="296" r="5.234644184587523" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="524" cy="445" r="10.205506339669228" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="280" cy="481" r="9.886828801361844" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1232" cy="244" r="10.83730297605507" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="751" cy="416" r="6.520493329735473" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#A7B5FF"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0C18">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">AI ML / PYTHON FOR MACHINE LEARNING</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Why</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Python</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Is</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">the</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Language<tspan fill="#A7B5FF">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>
