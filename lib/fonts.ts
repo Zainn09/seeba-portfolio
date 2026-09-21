@@ -1,23 +1,37 @@
-import { Space_Grotesk, DM_Mono, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 
-export const fontDisplay = Space_Grotesk({
-  subsets: ["latin"],
+/**
+ * Self-hosted brand fonts — Space Grotesk (display), DM Mono (technical),
+ * Instrument Serif (editorial accent). Served locally for performance and
+ * zero build-time network dependency.
+ */
+
+export const fontDisplay = localFont({
+  src: [
+    { path: "../public/fonts/self/space-grotesk-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/self/space-grotesk-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/self/space-grotesk-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/self/space-grotesk-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-export const fontMono = DM_Mono({
-  subsets: ["latin"],
+export const fontMono = localFont({
+  src: [
+    { path: "../public/fonts/self/dm-mono-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "../public/fonts/self/dm-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/self/dm-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--font-mono",
-  weight: ["300", "400", "500"],
   display: "swap",
 });
 
-export const fontSerif = Instrument_Serif({
-  subsets: ["latin"],
+export const fontSerif = localFont({
+  src: [
+    { path: "../public/fonts/self/instrument-serif-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/self/instrument-serif-latin-400-italic.woff2", weight: "400", style: "italic" },
+  ],
   variable: "--font-serif",
-  weight: ["400"],
-  style: ["normal", "italic"],
   display: "swap",
 });
