@@ -36,15 +36,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       publishedTime: article.publishDate,
       authors: [SITE.name],
       tags: [article.primaryKeyword, ...article.secondaryKeywords],
-      images: [{ url: `${SITE.baseUrl}${article.origPath}`, ...dimensions(article)}, { url: `${SITE.baseUrl}${article.origPath}`, width: 1200, height: 630, alt: article.imageAlt }],
+      images: [
+        { url: `${SITE.baseUrl}${socialImage(article)}`, ...dimensions(article) },
+        { url: `${SITE.baseUrl}${socialImage(article)}`, width: 1200, height: 630, alt: article.imageAlt },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: metaTitle,
       description,
-      images: [`${SITE.baseUrl}${article.origPath}`],
+      images: [`${SITE.baseUrl}${socialImage(article)}`],
     },
   };
+}
+
+/** Social platforms prefer PNG/JPEG over WebP — serve PNG to crawlers. */
+function socialImage(a: { slug: string }) {
+  return `/images/blog/${a.slug}.png`;
 }
 
 function dimensions(a: { feat?: boolean }) {
@@ -73,7 +81,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         "@type": "BlogPosting",
         headline: article.title,
         description: article.excerpt,
-        image: `${SITE.baseUrl}${article.origPath}`,
+        image: `${SITE.baseUrl}/images/blog/${article.slug}.png`,
         datePublished: article.publishDate,
         dateModified: article.publishDate,
         author: {
