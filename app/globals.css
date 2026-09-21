@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Theme tokens — light + dark are intentionally different moods.      */
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --ink: 16 21 19;          /* #101513 */
+  --surface: 247 248 243;   /* #F7F8F3 */
+  --raised: 255 255 255;    /* #FFFFFF */
+  --line: 221 227 220;      /* #DDE3DC */
+  --soft: 93 102 99;        /* #5D6663 */
+  --accent: 109 157 45;     /* #6D9D2D */
+  --accent2: 20 122 112;    /* #147A70 */
+  --tech: 102 114 199;      /* #6672C7 */
+  --on-accent: 247 248 243;
+  --grid: 16 21 19;
+  --halo: 109 157 45;
+}
+
+.dark {
+  color-scheme: dark;
+  --ink: 243 246 244;       /* #F3F6F4 */
+  --surface: 8 11 18;       /* #080B12 */
+  --raised: 16 22 32;       /* #101620 */
+  --line: 33 41 54;         /* softened #080B12 -> #101620 border */
+  --soft: 155 166 165;      /* #9BA6A5 */
+  --accent: 184 245 106;    /* #B8F56A */
+  --accent2: 125 226 209;   /* #7DE2D1 */
+  --tech: 167 181 255;      /* #A7B5FF */
+  --on-accent: 8 11 18;
+  --grid: 243 246 244;
+  --halo: 184 245 106;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
+  font-family: var(--font-display), system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.9);
+  color: rgb(var(--on-accent));
+}
+
+/* Restrained technical grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--grid) / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--grid) / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.bg-grid-fine {
+  background-image:
+    linear-gradient(to right, rgb(var(--grid) / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--grid) / 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Visual/readable placeholders come from the CSS-side image helpers. */
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .meta-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-soft;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.35s var(--ease-out-expo);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Handwritten reveal for the signature stroke                          */
+/* ------------------------------------------------------------------ */
+@keyframes signature-draw {
+  to { stroke-dashoffset: 0; }
+}
+.signature-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: signature-draw 2.4s cubic-bezier(0.6, 0.05, 0.2, 1) forwards;
+}
+
+/* ------------------------------------------------------------------ */
+/* Marquee for the "Built Under My Name" technical fragments            */
+/* ------------------------------------------------------------------ */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-track {
+  animation: marquee-x 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .signature-path {
+    animation: none;
+  }
+  .signature-path { stroke-dashoffset: 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero portrait placeholder — tasteful, branded, obviously swappable. */
+/* ------------------------------------------------------------------ */
+.portrait-placeholder {
+  background:
+    linear-gradient(150deg, rgb(var(--accent) / 0.16), transparent 45%),
+    radial-gradient(120% 90% at 70% 10%, rgb(var(--accent2) / 0.14), transparent 55%),
+    rgb(var(--raised));
+}
+
+/* ------------------------------------------------------------------ */
+/* Scrollbars                                                          */
+/* ------------------------------------------------------------------ */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--surface)); }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--line));
+    border-radius: 999px;
+    border: 2px solid rgb(var(--surface));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--soft)); }
+}
+
+/* code blocks */
+pre {
+  overflow-x: auto;
+}
+pre code {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-section {
+  color: rgb(var(--accent));
+}
+.hljs-string, .hljs-attribute { color: rgb(var(--accent2)); }
+.hljs-number, .hljs-symbol { color: rgb(var(--tech)); }
+.hljs-comment, .hljs-quote { color: rgb(var(--soft)); }
+.hljs-title, .hljs-name, .hljs-function { color: rgb(var(--ink)); }
+.hljs-built_in, .hljs-builtin-name, .hljs-type { color: rgb(var(--tech)); }
+.hljs-meta { color: rgb(var(--soft)); }

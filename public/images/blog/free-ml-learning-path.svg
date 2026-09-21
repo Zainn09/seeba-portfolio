@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#0A0C18"/>
+  <rect width="1600" height="900" fill="url(#g)"/><line x1="1070" y1="648" x2="889" y2="319" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="508" y1="665" x2="943" y2="413" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="679" y1="251" x2="526" y2="532" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="889" y1="319" x2="1040" y2="257" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="943" y1="413" x2="425" y2="655" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="526" y1="532" x2="839" y2="234" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1040" y1="257" x2="476" y2="318" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="425" y1="655" x2="555" y2="689" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="839" y1="234" x2="1220" y2="178" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="476" y1="318" x2="1207" y2="335" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="555" y1="689" x2="385" y2="503" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1220" y1="178" x2="1070" y2="648" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1207" y1="335" x2="508" y2="665" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="385" y1="503" x2="679" y2="251" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="1070" cy="648" r="10.166615622816607" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="508" cy="665" r="8.20292122848332" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="679" cy="251" r="9.739143975777552" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="889" cy="319" r="10.405176684260368" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="943" cy="413" r="4.07079721079208" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="526" cy="532" r="6.985124505823478" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1040" cy="257" r="9.446632608072832" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="425" cy="655" r="5.705800777068362" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="839" cy="234" r="5.4114622382912785" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="476" cy="318" r="9.081490352051333" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="555" cy="689" r="11.292869488475844" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1220" cy="178" r="7.463999070925638" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1207" cy="335" r="5.151588888838887" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="385" cy="503" r="7.004090407863259" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#A7B5FF"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0C18">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">AI ML / MACHINE LEARNING ROADMAP</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">A</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Free</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Machine</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Learning</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Path<tspan fill="#A7B5FF">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>

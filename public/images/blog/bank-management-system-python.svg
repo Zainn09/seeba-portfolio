@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#081013"/>
+  <rect width="1600" height="900" fill="url(#g)"/><rect x="220" y="370" width="216" height="72" rx="14" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.85"/><rect x="420" y="370" width="215" height="72" rx="14" fill="none" stroke="#B8F56A" stroke-width="2" opacity="0.85"/><rect x="620" y="480" width="241" height="72" rx="14" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.85"/><rect x="820" y="370" width="275" height="72" rx="14" fill="none" stroke="#B8F56A" stroke-width="2" opacity="0.85"/><rect x="1020" y="590" width="192" height="72" rx="14" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.85"/><rect x="1220" y="480" width="187" height="72" rx="14" fill="none" stroke="#B8F56A" stroke-width="2" opacity="0.85"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#7DE2D1"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#081013">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">PROJECTS / BANK MANAGEMENT SYSTEM PYTHON</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">A</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Bank</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Management</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">System</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">in<tspan fill="#7DE2D1">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#0A0C18"/>
+  <rect width="1600" height="900" fill="url(#g)"/><line x1="243" y1="193" x2="723" y2="487" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="722" y1="456" x2="1258" y2="309" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="552" y1="471" x2="1175" y2="677" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="723" y1="487" x2="1197" y2="691" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1258" y1="309" x2="1106" y2="332" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1175" y1="677" x2="941" y2="568" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1197" y1="691" x2="1207" y2="638" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1106" y1="332" x2="1000" y2="683" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="941" y1="568" x2="1149" y2="535" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1207" y1="638" x2="498" y2="199" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1000" y1="683" x2="279" y2="570" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1149" y1="535" x2="243" y2="193" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="498" y1="199" x2="722" y2="456" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="279" y1="570" x2="552" y2="471" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="243" cy="193" r="5.249999028630555" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="722" cy="456" r="7.433907363796607" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="552" cy="471" r="4.9074078786652535" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="723" cy="487" r="4.373279179213569" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1258" cy="309" r="9.509670137893409" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1175" cy="677" r="11.970580893335864" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1197" cy="691" r="11.565171425463632" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1106" cy="332" r="12.400585017167032" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="941" cy="568" r="6.105436792131513" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1207" cy="638" r="6.459826562553644" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1000" cy="683" r="8.09331072238274" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="1149" cy="535" r="10.949900645762682" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="498" cy="199" r="5.519055723212659" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="279" cy="570" r="6.081654998473823" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#A7B5FF"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0C18">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">AI ML / WHAT IS A DATASET</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">What</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">a</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Dataset</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Is</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">(And<tspan fill="#A7B5FF">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>

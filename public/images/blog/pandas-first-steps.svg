@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="#9BA6A5" stroke-opacity="0.12"/></pattern></defs>
+  <rect width="1600" height="900" fill="#0A0C18"/>
+  <rect width="1600" height="900" fill="url(#g)"/><line x1="708" y1="518" x2="546" y2="245" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="711" y1="351" x2="1171" y2="422" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="312" y1="285" x2="982" y2="508" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="546" y1="245" x2="537" y2="226" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1171" y1="422" x2="864" y2="660" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="982" y1="508" x2="1035" y2="513" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="537" y1="226" x2="692" y2="683" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="864" y1="660" x2="1330" y2="171" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1035" y1="513" x2="245" y2="352" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="692" y1="683" x2="396" y2="403" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="1330" y1="171" x2="650" y2="206" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="245" y1="352" x2="708" y2="518" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="396" y1="403" x2="711" y2="351" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><line x1="650" y1="206" x2="312" y2="285" stroke="#9BA6A5" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="708" cy="518" r="12.80722703342326" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="711" cy="351" r="4.286578118102625" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="312" cy="285" r="7.528954212553799" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="546" cy="245" r="12.326858859276399" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1171" cy="422" r="12.312009932240471" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="982" cy="508" r="11.439563734456897" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="537" cy="226" r="5.659006688278168" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="864" cy="660" r="12.468323011416942" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1035" cy="513" r="9.879655662924051" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="692" cy="683" r="4.701527423923835" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="1330" cy="171" r="12.54788979049772" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="245" cy="352" r="8.48022349877283" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/><circle cx="396" cy="403" r="6.701489009894431" fill="none" stroke="#7DE2D1" stroke-width="2" opacity="0.9"/><circle cx="650" cy="206" r="8.274938029237092" fill="none" stroke="#A7B5FF" stroke-width="2" opacity="0.9"/>
+
+<!-- brand mark -->
+<g>
+  <rect x="86" y="72" width="56" height="56" rx="14" fill="#A7B5FF"/>
+  <text x="114" y="112" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="30" font-weight="700" fill="#0A0C18">AH</text>
+</g>
+
+<!-- category + keyword meta -->
+<text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="#9BA6A5" font-weight="300">AI ML / PANDAS TUTORIAL FOR BEGINNERS</text>
+
+<!-- title block -->
+<text x="86" y="660" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Your</text>
+<text x="86" y="756" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">First</text>
+<text x="86" y="852" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Steps</text>
+<text x="86" y="948" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">With</text>
+<text x="86" y="1044" font-family="Space Grotesk, sans-serif" font-size="78" font-weight="700" fill="#F3F6F4" letter-spacing="-2">Pandas<tspan fill="#A7B5FF">.</tspan></text>
+
+<!-- footer rule -->
+<line x1="86" y1="826" x2="1514" y2="826" stroke="#9BA6A5" stroke-opacity="0.25" stroke-width="1.5"/>
+<text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#9BA6A5" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
+</svg>
