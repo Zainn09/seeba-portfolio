@@ -9,7 +9,11 @@ Seven commands cover normal life. The extras appear for three specific situation
 
 ## Why commit messages are part of the discipline
 
-The commit itself is only half the artifact; the message is the other, and future-you reads it like an archaeologist reads strata. "add search" from three weeks ago may as well not exist when you're wondering *why* the search code looks that way. "add student search by roll number, partial-name matching" answers the question before it's asked. The rule that produces good messages isn't sophistication — it's a complete sentence about *what changed and why*. It costs five extra seconds and pays out every single time history gets read, which in the life of a healthy repo is constantly. A well-messaged history is a documentation layer that writes itself; a badly-messaged one is noise you have to excavate.`,
+The commit itself is only half the artifact; the message is the other, and future-you reads it like an archaeologist reads strata. "add search" from three weeks ago may as well not exist when you're wondering *why* the search code looks that way. "add student search by roll number, partial-name matching" answers the question before it's asked. The rule that produces good messages isn't sophistication — it's a complete sentence about *what changed and why*. It costs five extra seconds and pays out every single time history gets read, which in the life of a healthy repo is constantly. A well-messaged history is a documentation layer that writes itself; a badly-messaged one is noise you have to excavate.
+
+## A one-week practice plan
+
+Seven commands, one week, zero friction: day one, \`init\` a folder and make your first two commits; day two, practice \`status\` and \`add\` on real edits; day three, read your own \`log\`; day four, branch, make a change, and merge it back; day five, push to a remote and pull from it on purpose. By Friday the seven aren't memorized facts — they're a workflow your hands already know. The goal was never the commands themselves; it's reaching the state where version control stops being a ceremony you perform around the code and becomes simply how the code moves through your day.`,
 
   "git-vs-github": `## The three other GitHubs you should know exist
 
@@ -21,4 +25,9 @@ The command that ties the model together: \`git clone\` copies a repository — 
 
 ## The private vs public decision
 
-A practical question every student bumps into: should a repo be public or private? The honest default: personal learning projects can be public and *should* be, because they're the visible proof a portfolio depends on; anything with secrets, class solutions you're meant to keep private, or code you don't have rights to share should stay private. Re-read the secret discipline — a token committed accidentally is public in seconds and finds its way into others' hands in minutes, so the habit is: private while you're unsure, public once it's clean, and always assume anything public is carved in stone. The choice is a marketing decision *and* a security decision at once, which is why both lenses deserve a moment.`,};
+A practical question every student bumps into: should a repo be public or private? The honest default: personal learning projects can be public and *should* be, because they're the visible proof a portfolio depends on; anything with secrets, class solutions you're meant to keep private, or code you don't have rights to share should stay private. Re-read the secret discipline — a token committed accidentally is public in seconds and finds its way into others' hands in minutes, so the habit is: private while you're unsure, public once it's clean, and always assume anything public is carved in stone. The choice is a marketing decision *and* a security decision at once, which is why both lenses deserve a moment.
+
+## The workflow that connects them
+
+A script you'll type hundreds of times, deconstructed: \`git add .\` stages your local changes; \`git commit\` photographs them into local history; \`git push\` ships that history to GitHub. Each verb happens in a different place — the first two run entirely on your machine (Git's world), the third crosses the network (GitHub's world). Miss that split and mysterious phrases like "push rejected" read as git failing, when really the remote refused a history that conflicts with its own — a *coordination* problem between two copies, not a defect in either. The split is the whole article in one sentence: track locally, publish remotely, and understand which side you're on when something complains.`,
+};
