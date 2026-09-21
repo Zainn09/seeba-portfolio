@@ -478,7 +478,7 @@ export const articles: Article[] = [
     category: "Student Journey",
     hub: "student-journey",
     primaryKeyword: "github for beginners",
-    secondaryKeywords: ["how to use github for students", "git vs github", "first github repository"],
+    secondaryKeywords: ["how to use github for students", "first github repository", "github student projects"],
     searchIntent: "Tutorial — tooling",
     audience: "Students opening their first GitHub account",
     readingTime: 5,
