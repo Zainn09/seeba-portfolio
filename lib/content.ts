@@ -253,6 +253,6 @@ export const navLinks = [
   { id: "02", label: "Journey", href: "#journey" },
   { id: "03", label: "Projects", href: "#projects" },
   { id: "04", label: "Thinking", href: "#thinking" },
-  { id: "05", label: "Direction", href: "#direction" },
+  { id: "05", label: "Notebook", href: "#blog-hub" },
   { id: "06", label: "Contact", href: "#contact" },
 ];

@@ -5,6 +5,7 @@ import remarkRehype from "remark-rehype";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
+import type { Root as MdastRoot } from "mdast";
 
 export type Heading = { id: string; text: string; level: number; children: Heading[] };
 
@@ -20,11 +21,11 @@ export async function markdownToHtml(markdown: string): Promise<{ html: string; 
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(() => (tree) => {
+    .use(() => (tree: MdastRoot) => {
       // extract headings while still in mdast
       for (const node of tree.children) {
         if (node.type === "heading") {
-          const text = plainText(node as never);
+          const text = plainText(node);
           const heading: Heading = {
             id: "",
             text,
@@ -71,6 +72,9 @@ function plainText(node: { children?: { type: string; value?: string }[] }): str
     .map((c) => (c.type === "text" || c.type === "inlineCode" ? c.value ?? "" : ""))
     .join("");
 }
+
+// keep type import referenced for bundlers that tree-shake aggressively
+export type { MdastRoot };
 
 export function extractPlainText(markdown: string): string {
   // lightweight text extraction for search snippets
