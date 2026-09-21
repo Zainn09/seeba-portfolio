@@ -49,7 +49,7 @@ export default function Navbar() {
       >
         <nav className="container-x flex h-16 items-center justify-between md:h-[4.5rem]">
           <a
-            href="#top"
+            href="#about"
             className="focus-ring group flex items-baseline gap-2 rounded-sm"
             aria-label="Back to top"
           >

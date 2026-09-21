@@ -33,7 +33,7 @@ export default function Hero() {
   const { x, y } = useParallax();
 
   return (
-    <section id="top" className="relative overflow-hidden">
+    <section id="about" className="relative overflow-hidden">
       {/* layered backdrop */}
       <div className="bg-grid absolute inset-0" aria-hidden />
       <div
