@@ -18,7 +18,7 @@ export default function BlogPreview() {
           serif="notebook"
           aside={
             <Link
-              href="#blog-hub"
+              href="/blog"
               className="focus-ring group inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-soft transition-colors hover:border-accent hover:text-ink"
             >
               Browse the whole library

@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: SITE.baseUrl },
-          { "@type": "ListItem", position: 2, name: hub?.name ?? "Notebook", item: `${SITE.baseUrl}/#blog-hub` },
+          { "@type": "ListItem", position: 2, name: hub?.name ?? "Notebook", item: `${SITE.baseUrl}/blog` },
           { "@type": "ListItem", position: 3, name: article.title, item: `${SITE.baseUrl}/blog/${article.slug}` },
         ],
       },
@@ -131,7 +131,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           <div className="container-x relative pb-10 pt-28 sm:pt-32">
             <div className="flex flex-wrap items-center gap-3 text-sm">
               <Link
-                href="/#blog-hub"
+                href="/blog"
                 className="focus-ring inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-soft transition-colors hover:text-ink"
               >
                 ← Back to notebook
@@ -169,17 +169,23 @@ export default async function ArticlePage({ params }: { params: { slug: string }
           {/* Body */}
           <div className="min-w-0">
             {article.feat && (
-              <div className="mb-10 overflow-hidden rounded-xl border border-line">
-                <Image
-                  src={article.origPath}
-                  alt={article.imageAlt}
-                  width={1200}
-                  height={675}
-                  priority
-                  className="h-auto w-full object-cover"
-                  sizes="(min-width: 1024px) 60vw, 100vw"
-                />
-              </div>
+              <figure className="relative isolate mb-10 overflow-hidden rounded-xl border border-line bg-raised">
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <Image
+                    src={article.origPath}
+                    alt={article.imageAlt}
+                    width={1200}
+                    height={675}
+                    priority
+                    className="h-full w-full object-cover"
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                  />
+                </div>
+                {/* Prevent title/footer overlap - explicit caption area with safe spacing */}
+                <figcaption className="border-t border-line bg-raised/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-soft/60 backdrop-blur">
+                  {article.category} · {article.primaryKeyword} · Featured
+                </figcaption>
+              </figure>
             )}
             <ArticleBody html={html} />
             <FaqSection faqs={faqs} />
@@ -286,7 +292,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
             Keep reading
           </h2>
           <Link
-            href="/#blog-hub"
+            href="/blog"
             className="focus-ring link-underline font-mono text-[11px] uppercase tracking-[0.18em] text-soft hover:text-ink"
           >
             All articles →

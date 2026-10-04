@@ -11,7 +11,6 @@ import AiPath from "@/components/AiPath";
 import Skills from "@/components/Skills";
 import GitHub from "@/components/GitHub";
 import BlogPreview from "@/components/BlogPreview";
-import BlogHub from "@/components/blog/BlogHub";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
@@ -66,7 +65,6 @@ export default function Home() {
         <Skills />
         <GitHub />
         <BlogPreview />
-        <BlogHub />
         <Contact />
       </main>
       <Footer />
