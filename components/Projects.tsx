@@ -60,19 +60,19 @@ function VideoStage({
   const reduce = useReducedMotion();
   const playing = active && !reduce;
   const [videoError, setVideoError] = useState(false);
+  const [showLive, setShowLive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      if (playing && !videoError) {
+      if (playing && !videoError && !showLive) {
         videoRef.current.play().catch(() => {});
       } else {
         videoRef.current.pause();
       }
     }
-  }, [playing, videoError]);
+  }, [playing, videoError, showLive]);
 
-  const hasVideo = !!project.video && !videoError;
   const posterLabel =
     project.demo === "sneaker"
       ? "ANDROID APP WALKTHROUGH"
@@ -80,18 +80,33 @@ function VideoStage({
       ? "LIVE UI DEMO"
       : "PYTHON CONSOLE DEMO";
 
-  // If no video file, fall back to live demo stage
-  if (!hasVideo) {
+  // If no video configured, fall back to live demo
+  if (!project.video) {
     return <DemoStage demo={project.demo} active={active} poster={posterLabel} />;
+  }
+
+  // If user explicitly wants live demo, show it
+  if (showLive) {
+    return (
+      <div className="relative h-full w-full">
+        <DemoStage demo={project.demo} active={active} poster={`${posterLabel} · LIVE`} />
+        <button
+          onClick={() => setShowLive(false)}
+          className="absolute bottom-3 right-3 rounded-full bg-ink/80 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-surface backdrop-blur"
+        >
+          ← Back to video
+        </button>
+      </div>
+    );
   }
 
   return (
     <div className="relative h-full w-full overflow-hidden rounded-xl border border-line bg-raised">
-      {/* Video element */}
+      {/* Video element - always rendered, valid MP4 now */}
       <video
         ref={videoRef}
-        src={project.video!.mp4}
-        poster={project.video!.poster}
+        src={project.video.mp4}
+        poster={project.video.poster}
         muted
         loop
         playsInline
@@ -100,34 +115,71 @@ function VideoStage({
         className="h-full w-full object-cover"
         data-demo={project.demo}
       />
-      {/* Poster overlay when not playing */}
-      <div
-        className={`absolute inset-0 flex items-center justify-center bg-raised/90 backdrop-blur-[1px] transition-opacity duration-500 ${
-          playing ? "pointer-events-none opacity-0" : "opacity-100"
-        }`}
-      >
-        <div className="bg-grid-fine absolute inset-0 opacity-60" aria-hidden />
-        <div className="relative text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-soft">
-            {posterLabel} — RECORDED
-          </span>
-          <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-soft/60">
-            {project.slug}.mp4 · loop · silent
-          </div>
-          <div className="mt-3 flex items-center justify-center gap-1.5 font-mono text-2xl text-accent" aria-hidden>
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />▸
+
+      {/* Error fallback - still shows poster but indicates issue */}
+      {videoError && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-raised p-6 text-center">
+          <div className="bg-grid-fine absolute inset-0 opacity-60" aria-hidden />
+          <div className="relative">
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-soft">Video failed to load</span>
+            <p className="mt-2 max-w-[260px] text-sm leading-relaxed text-soft">Showing live animation fallback. Regenerate via scripts/record-demo-videos.ts</p>
+            <button
+              onClick={() => setShowLive(true)}
+              className="mt-4 rounded-full bg-ink px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-surface"
+            >
+              View live demo →
+            </button>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Video badge */}
+      {/* Poster overlay when not playing - shows for all 6 projects */}
+      {!videoError && (
+        <div
+          className={`absolute inset-0 flex items-center justify-center bg-raised/90 backdrop-blur-[1px] transition-opacity duration-500 ${
+            playing ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
+        >
+          <div className="bg-grid-fine absolute inset-0 opacity-60" aria-hidden />
+          <div className="relative text-center">
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-soft">
+              {posterLabel} — RECORDED · {project.slug}
+            </span>
+            <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-soft/60">
+              /videos/{project.slug}.mp4 · {project.demo} · loop · silent · 6 projects
+            </div>
+            <div className="mt-3 flex items-center justify-center gap-1.5 font-mono text-2xl text-accent" aria-hidden>
+              <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />▸
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowLive(true);
+              }}
+              className="mt-4 rounded-full border border-line bg-surface/80 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-soft backdrop-blur hover:border-accent hover:text-ink"
+            >
+              Or view live animation
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Video badges - shows REC + demo type + project count */}
       <div className="absolute left-3 top-3 flex items-center gap-2">
         <span className="rounded-full bg-ink/80 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-surface backdrop-blur">
           REC
         </span>
+        <span className="rounded-full bg-accent px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-on-accent backdrop-blur">
+          VIDEO
+        </span>
         <span className="rounded-full bg-surface/85 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink backdrop-blur">
           {project.demo}
         </span>
+      </div>
+
+      {/* Bottom right - project index */}
+      <div className="absolute bottom-3 left-3 rounded-full bg-surface/85 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-soft backdrop-blur">
+        {project.index} · {project.slug}
       </div>
     </div>
   );
