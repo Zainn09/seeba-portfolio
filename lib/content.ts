@@ -63,6 +63,11 @@ export type Project = {
   chips: string[];
   demo: "web" | "cafe" | "calculator" | "library" | "student" | "bank" | "sneaker";
   note?: string;
+  video?: {
+    mp4: string;
+    webm?: string;
+    poster: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -78,6 +83,10 @@ export const projects: Project[] = [
     chips: ["HTML5", "CSS3", "Responsive"],
     demo: "cafe",
     note: "BUILT TO UNDERSTAND",
+    video: {
+      mp4: "/videos/chai-dosti-cafe.mp4",
+      poster: "/videos/poster-chai-dosti-cafe.jpg",
+    },
   },
   {
     id: "calculator",
@@ -91,6 +100,10 @@ export const projects: Project[] = [
     chips: ["HTML5", "CSS3", "Grid", "Responsive"],
     demo: "calculator",
     note: "MADE WHILE LEARNING",
+    video: {
+      mp4: "/videos/responsive-calculator.mp4",
+      poster: "/videos/poster-responsive-calculator.jpg",
+    },
   },
   {
     id: "library",
@@ -104,6 +117,10 @@ export const projects: Project[] = [
     chips: ["Python", "File Handling", "OOP", "Console"],
     demo: "library",
     note: "REAL PROJECT. REAL PRACTICE.",
+    video: {
+      mp4: "/videos/library-management-system.mp4",
+      poster: "/videos/poster-library-management-system.jpg",
+    },
   },
   {
     id: "student",
@@ -117,6 +134,10 @@ export const projects: Project[] = [
     chips: ["Python", "File Handling", "Data Structures", "Console"],
     demo: "student",
     note: "WHAT I LEARNED",
+    video: {
+      mp4: "/videos/student-management-system.mp4",
+      poster: "/videos/poster-student-management-system.jpg",
+    },
   },
   {
     id: "bank",
@@ -130,6 +151,10 @@ export const projects: Project[] = [
     chips: ["Python", "OOP", "State", "Console"],
     demo: "bank",
     note: "THE BUILD",
+    video: {
+      mp4: "/videos/bank-management-system.mp4",
+      poster: "/videos/poster-bank-management-system.jpg",
+    },
   },
   {
     id: "sneakerstore",
@@ -143,6 +168,10 @@ export const projects: Project[] = [
     chips: ["Java", "XML", "Firebase", "SQLite", "Android Studio"],
     demo: "sneaker",
     note: "HERO PROJECT",
+    video: {
+      mp4: "/videos/sneakerstore.mp4",
+      poster: "/videos/poster-sneakerstore.jpg",
+    },
   },
 ];
 
