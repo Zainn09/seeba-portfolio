@@ -80,14 +80,14 @@ export default function Journey() {
                         <span className="h-px flex-1 bg-line/60" aria-hidden />
                       </div>
 
-                      {/* Title + subtitle stacked directly under title */}
-                      <div className="mt-4">
+                      {/* Title + subtitle stacked directly under title - no gap, ledger style */}
+                      <div className="mt-4 flex flex-col">
                         <h3 className="font-display text-3xl font-semibold tracking-tightest text-ink sm:text-4xl">
                           {stage.title}
                         </h3>
-                        <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent/80">
+                        <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-accent/80">
                           {stage.sub}
-                        </p>
+                        </span>
                       </div>
 
                       <p
