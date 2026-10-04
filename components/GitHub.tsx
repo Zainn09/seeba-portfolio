@@ -14,9 +14,9 @@ export default function GitHub() {
       <div className="container-x relative">
         <SectionHead
           index="08"
-          label="The evidence"
-          title={<>Open source of</>}
-          serif="my learning"
+          label="Where the work actually lives"
+          title={<>Where the work</>}
+          serif="actually lives"
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
