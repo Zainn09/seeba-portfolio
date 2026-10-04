@@ -164,6 +164,12 @@ function titleWords(title: string, max = 5): string[] {
 function render(seed: string, title: string, category: string, keyword: string, kind: VisualKind, theme: VisualTheme): string {
   const t = THEME[theme];
   const words = titleWords(title);
+  // Fix: previously title started at y=660 with 96px spacing, so 5-word titles went to y=1044
+  // which exceeded H=900 and overlapped footer at y=826/862. Now we calculate safe bounds:
+  // footer rule at 826, so last title line must be <= 760. Start at 420-480 depending on word count.
+  const startY = words.length <= 2 ? 560 : words.length === 3 ? 500 : words.length === 4 ? 460 : 420;
+  const lineHeight = words.length <= 2 ? 92 : words.length === 3 ? 86 : 82;
+  const fontSize = words.length <= 2 ? 96 : words.length === 3 ? 84 : words.length === 4 ? 78 : 72;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
 ${svgFor(kind, theme, seed)}
 
@@ -176,10 +182,10 @@ ${svgFor(kind, theme, seed)}
 <!-- category + keyword meta -->
 <text x="166" y="100" font-family="DM Mono, monospace" font-size="26" letter-spacing="6" fill="${t.dim}" font-weight="300">${esc(category.toUpperCase())} / ${esc(keyword.toUpperCase())}</text>
 
-<!-- title block -->
-${words.map((w, i) => `<text x="86" y="${660 + i * 96}" font-family="Space Grotesk, sans-serif" font-size="${108 - words.length * 6}" font-weight="700" fill="${t.ink}" letter-spacing="-2">${esc(w)}${i === words.length - 1 ? `<tspan fill="${t.accent}">.</tspan>` : ""}</text>`).join("\n")}
+<!-- title block - fixed to avoid footer overlap -->
+${words.map((w, i) => `<text x="86" y="${startY + i * lineHeight}" font-family="Space Grotesk, sans-serif" font-size="${fontSize}" font-weight="700" fill="${t.ink}" letter-spacing="-2">${esc(w)}${i === words.length - 1 ? `<tspan fill="${t.accent}">.</tspan>` : ""}</text>`).join("\n")}
 
-<!-- footer rule -->
+<!-- footer rule - now guaranteed gap from title -->
 <line x1="86" y1="826" x2="1514" y2="826" stroke="${t.dim}" stroke-opacity="0.25" stroke-width="1.5"/>
 <text x="86" y="862" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="${t.dim}" font-weight="300">ABDUL HASEEB — DEVELOPER NOTEBOOK</text>
 </svg>`;
