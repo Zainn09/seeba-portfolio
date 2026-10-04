@@ -27,8 +27,9 @@ export const SITE = {
   linkedinUrl: "YOUR_LINKEDIN_URL",
   baseUrl: "https://abdulhaseeb.dev", // canonical URL placeholder
 
-  // Analytics / Search Console placeholders — do NOT commit fake IDs.
-  googleSiteVerification: "GOOGLE_SEARCH_CONSOLE_VERIFICATION",
+  // Analytics / Search Console
+  googleSiteVerification: "sFCobwdgJ47jkotq4vkO_mTo13ORcuoajMbTo7Y_O_A",
+  googleSiteVerificationHtml: "google27246a1b5dd69cd4",
   googleAnalyticsId: "GOOGLE_ANALYTICS_ID",
   googleTagManagerId: "GOOGLE_TAG_MANAGER_ID",
 } as const;
