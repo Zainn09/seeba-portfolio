@@ -161,6 +161,20 @@ robots.txt that blocks assets, and any broken internal link.
 npm run quality   # article-level checks (word counts, keyword overlap, links)
 ```
 
+### Analytics & monitoring
+
+Vercel Web Analytics and Speed Insights are mounted once in the root layout
+(`app/layout.tsx`), so every route renders them — including the 404 page. Both
+packages inject their tag from a client effect, which means the `<script>`
+elements appear after hydration and never in the pre-rendered HTML; the checks
+below account for that:
+
+```bash
+npm run verify:observability     # static: root-layout wiring + every built page loads the injection chunk
+npm run test:observability:dom   # DOM: boots next start, hydrates every route in jsdom, asserts both scripts
+npm run check:verify             # build + seo:audit + both observability checks, end to end
+```
+
 ### Performance & accessibility
 
 - The three.js brand scene is code-split and only fetched once its section is on

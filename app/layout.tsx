@@ -5,6 +5,8 @@ import { SITE, SEO } from "@/lib/site";
 import { absoluteUrl, paths } from "@/lib/urls";
 import { personNode, websiteNode } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -85,6 +87,10 @@ export default function RootLayout({
       <body>
         <ThemeProvider>{children}</ThemeProvider>
         <JsonLd data={siteGraph} />
+        {/* Vercel Web Analytics — every page renders through this layout, so
+            both scripts are present site-wide (see npm run verify:observability). */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

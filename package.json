@@ -11,8 +11,10 @@
     "lint": "next lint",
     "redirects": "node scripts/generate-redirects.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
-    "check:verify": "npm run build && npm run seo:audit",
-    "quality": "npx --yes tsx scripts/quality-check.ts"
+    "check:verify": "npm run build && npm run seo:audit && npm run verify:observability && npm run test:observability:dom",
+    "quality": "npx --yes tsx scripts/quality-check.ts",
+    "verify:observability": "node scripts/verify-observability.mjs",
+    "test:observability:dom": "node scripts/test-observability-dom.mjs"
   },
   "dependencies": {
     "@fontsource/dm-mono": "^5.3.0",
@@ -20,6 +22,8 @@
     "@fontsource/space-grotesk": "^5.3.0",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.8",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^11.11.0",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
@@ -44,6 +48,7 @@
     "@types/react-dom": "^18.3.0",
     "@types/three": "^0.169.0",
     "autoprefixer": "^10.4.20",
+    "jsdom": "^30.1.2",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.5.4"
