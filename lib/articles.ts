@@ -1,5 +1,6 @@
 import { articles as rawArticles, hubs } from "@/content/articles";
 import type { Article, ArticleMeta, FilterId, Hub, VisualKind, VisualTheme } from "@/content/types";
+import { articlePath } from "@/lib/urls";
 
 /**
  * Honest publication dates: roughly one per weekday starting 2024-09-02,
@@ -29,11 +30,20 @@ export const allArticles: ArticleMeta[] = rawArticles.map((a, i) => {
     ...a,
     publishDate: dateForIndex(i),
     wordCount: a.readingTime * 195,
-    imageAlt: `${a.title} — featured visual by Abdul Haseeb`,
+    imageAlt: `${a.title} — illustrated article header by Abdul Haseeb`,
     origPath: `/images/blog/${a.slug}.webp`, // optimized on-page image
+    socialPath: `/images/blog/${a.slug}.png`, // PNG for og:/twitter: crawlers
     visual,
   };
 });
+
+/**
+ * Legacy `/blog/<slug>` → canonical notebook path. Used to rewrite internal
+ * links inside article markdown so no old URL shape is ever linked again.
+ */
+export const LEGACY_LINK_MAP: Record<string, string> = Object.fromEntries(
+  allArticles.map((a) => [a.slug, articlePath(a)])
+);
 
 export const articlesBySlug: Record<string, ArticleMeta> = Object.fromEntries(
   allArticles.map((a) => [a.slug, a])

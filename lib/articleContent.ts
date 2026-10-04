@@ -2,6 +2,7 @@ import { articlesBySlug, allArticles, relatedArticles } from "@/lib/articles";
 import { additions } from "@/content/sections/index";
 import type { ArticleMeta } from "@/content/types";
 import { SITE } from "@/lib/site";
+import { articlePath } from "@/lib/urls";
 
 /**
  * Article content engine. Each entry composes a full 900–1,500 word markdown
@@ -32,7 +33,7 @@ function slug(article: ArticleMeta | undefined): string {
 function relatedLinks(article: ArticleMeta, n = 4): string {
   const rel = relatedArticles(article, n);
   return rel
-    .map((r) => `- [${r.title}](/blog/${r.slug})`)
+    .map((r) => `- [${r.title}](${articlePath(r)})`)
     .join("\n");
 }
 
@@ -46,7 +47,7 @@ function faqBlock(faqs: [string, string][]): string {
 
 function outro(article: ArticleMeta): string {
   const rel = relatedArticles(article, 1)[0];
-  return `\n\n## Keep building\n\nThat's the whole shape of it. If one idea stuck, go make a tiny version of it today — the smallest program that proves the point — and commit it before you fall asleep.\n\nThis article is part of a connected notebook written while learning, not from a finished summit. It links out to documentation I actually used, and points to other pieces that go deeper.\n\nNext worth reading: [${rel.title}](/blog/${rel.slug}).\n`;
+  return `\n\n## Keep building\n\nThat's the whole shape of it. If one idea stuck, go make a tiny version of it today — the smallest program that proves the point — and commit it before you fall asleep.\n\nThis article is part of a connected notebook written while learning, not from a finished summit. It links out to documentation I actually used, and points to other pieces that go deeper.\n\nNext worth reading: [${rel.title}](${articlePath(rel)}).\n`;
 }
 
 /* ================================================================== */

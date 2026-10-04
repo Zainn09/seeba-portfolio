@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "@/lib/theme";
 import { navLinks } from "@/lib/content";
-import { SITE } from "@/lib/site";
+import { SITE, HAS_GITHUB } from "@/lib/site";
+import { paths } from "@/lib/urls";
 
 function SunIcon() {
   return (
@@ -47,11 +49,11 @@ export default function Navbar() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <nav className="container-x flex h-16 items-center justify-between md:h-[4.5rem]">
-          <a
-            href="#about"
+        <nav className="container-x flex h-16 items-center justify-between md:h-[4.5rem]" aria-label="Primary">
+          <Link
+            href={paths.home}
             className="focus-ring group flex items-baseline gap-2 rounded-sm"
-            aria-label="Back to top"
+            aria-label="Abdul Haseeb — back to the homepage"
           >
             <span className="font-display text-lg font-bold tracking-tightest text-ink">
               Abdul<span className="text-accent">.</span>
@@ -59,33 +61,42 @@ export default function Navbar() {
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft">
               ABH / 01
             </span>
-          </a>
+          </Link>
 
           <div className="hidden items-center gap-7 md:flex">
-            {navLinks.map((l) => (
-              <a
-                key={l.id}
-                href={l.href}
-                className="focus-ring group rounded-sm font-mono text-[11px] uppercase tracking-[0.18em] text-soft transition-colors hover:text-ink"
-              >
-                <span className="mr-1 text-accent/80">{l.id}</span>
-                <span className="link-underline">{l.label}</span>
-              </a>
-            ))}
+            {navLinks.map((l) =>
+              l.href.startsWith("/") ? (
+                <Link
+                  key={l.id}
+                  href={l.href}
+                  className="focus-ring group rounded-sm font-mono text-[11px] uppercase tracking-[0.18em] text-soft transition-colors hover:text-ink"
+                >
+                  <span className="mr-1 text-accent/80">{l.id}</span>
+                  <span className="link-underline">{l.label}</span>
+                </Link>
+              ) : (
+                <a
+                  key={l.id}
+                  href={l.href}
+                  className="focus-ring group rounded-sm font-mono text-[11px] uppercase tracking-[0.18em] text-soft transition-colors hover:text-ink"
+                >
+                  <span className="mr-1 text-accent/80">{l.id}</span>
+                  <span className="link-underline">{l.label}</span>
+                </a>
+              )
+            )}
             <div className="ml-2 flex items-center gap-2 border-l border-line pl-4">
-              <a
-                href={
-                  SITE.githubUrl.startsWith("YOUR_")
-                    ? "#github"
-                    : SITE.githubUrl
-                }
-                target={SITE.githubUrl.startsWith("YOUR_") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                className="focus-ring rounded-sm font-mono text-[11px] uppercase tracking-[0.18em] text-soft transition-colors hover:text-ink"
-                data-cursor="EXPLORE"
-              >
-                GitHub
-              </a>
+              {HAS_GITHUB && SITE.social.github ? (
+                <a
+                  href={SITE.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring rounded-sm font-mono text-[11px] uppercase tracking-[0.18em] text-soft transition-colors hover:text-ink"
+                  data-cursor="EXPLORE"
+                >
+                  GitHub
+                </a>
+              ) : null}
               <button
                 type="button"
                 onClick={toggle}
@@ -133,22 +144,42 @@ export default function Navbar() {
             className="fixed inset-0 z-40 flex flex-col bg-surface/95 backdrop-blur-xl md:hidden"
           >
             <div className="container-x flex flex-1 flex-col justify-center gap-2 pt-16">
-              {navLinks.map((l, i) => (
-                <motion.a
-                  key={l.id}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: -24 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.08 + i * 0.05 }}
-                  className="flex items-baseline gap-4 border-b border-line py-4"
-                >
-                  <span className="font-mono text-xs text-accent">{l.id}</span>
-                  <span className="font-display text-3xl font-semibold tracking-tightest text-ink">
-                    {l.label}
-                  </span>
-                </motion.a>
-              ))}
+              {navLinks.map((l, i) =>
+                l.href.startsWith("/") ? (
+                  <motion.div
+                    key={l.id}
+                    initial={{ opacity: 0, x: -24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.08 + i * 0.05 }}
+                  >
+                    <Link
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className="focus-ring flex items-baseline gap-4 border-b border-line py-4"
+                    >
+                      <span className="font-mono text-xs text-accent">{l.id}</span>
+                      <span className="font-display text-3xl font-semibold tracking-tightest text-ink">
+                        {l.label}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.a
+                    key={l.id}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    initial={{ opacity: 0, x: -24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.08 + i * 0.05 }}
+                    className="focus-ring flex items-baseline gap-4 border-b border-line py-4"
+                  >
+                    <span className="font-mono text-xs text-accent">{l.id}</span>
+                    <span className="font-display text-3xl font-semibold tracking-tightest text-ink">
+                      {l.label}
+                    </span>
+                  </motion.a>
+                )
+              )}
             </div>
           </motion.div>
         ) : null}

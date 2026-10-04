@@ -1,11 +1,23 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { SITE } from "@/lib/site";
+import { SITE, HAS_GITHUB } from "@/lib/site";
+import { paths } from "@/lib/urls";
+import { projects } from "@/lib/content";
+import { hubs } from "@/content/articles";
 import { SignatureMark } from "@/components/ui/placeholder";
 import { EASE } from "@/components/ui/primitives";
 
-const META = ["BSCS", "PYTHON", "AI/ML", "GITHUB", "OPEN TO OPPORTUNITIES"];
+const META = ["BSCS", "PYTHON", "AI/ML", "OPEN TO OPPORTUNITIES"];
+
+const PORTFOLIO_LINKS = [
+  { label: "About", href: "/#about" },
+  { label: "Journey", href: "/#journey" },
+  { label: "Thinking", href: "/#thinking" },
+  { label: "Building in the open", href: "/#github" },
+  { label: "Contact", href: "/#contact" },
+];
 
 export default function Footer() {
   const reduce = useReducedMotion();
@@ -14,7 +26,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t border-line">
       {/* signature ground */}
       <div className="absolute inset-x-0 top-0 flex justify-center opacity-[0.05]" aria-hidden>
-        <SignatureMark className="w-full max-w-5xl text-ink" />
+        <SignatureMark className="w-full max-w-5xl text-ink" label="Abdul Haseeb" />
       </div>
 
       <div className="container-x relative py-24 text-center">
@@ -55,9 +67,92 @@ export default function Footer() {
             </span>
           ))}
         </div>
+      </div>
 
-        <p className="mt-10 font-mono text-[11px] text-soft/60">
-          © {new Date().getFullYear()} Abdul Haseeb · Designed &amp; built by hand.
+      {/* Site index — every important page is one click from every other page */}
+      <div className="container-x relative border-t border-line py-14 text-left">
+        <div className="grid gap-10 sm:grid-cols-3">
+          <nav aria-labelledby="footer-portfolio">
+            <h2 id="footer-portfolio" className="font-mono text-[10px] uppercase tracking-[0.22em] text-soft">
+              Portfolio
+            </h2>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link href={paths.home} className="focus-ring link-underline text-sm text-soft transition-colors hover:text-ink">
+                  Home
+                </Link>
+              </li>
+              {PORTFOLIO_LINKS.map((link) => (
+                <li key={link.href + link.label}>
+                  <a href={link.href} className="focus-ring link-underline text-sm text-soft transition-colors hover:text-ink">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-labelledby="footer-projects">
+            <h2 id="footer-projects" className="font-mono text-[10px] uppercase tracking-[0.22em] text-soft">
+              Projects
+            </h2>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link href={paths.projects} className="focus-ring link-underline text-sm text-ink transition-colors hover:text-accent">
+                  All case studies →
+                </Link>
+              </li>
+              {projects.map((project) => (
+                <li key={project.slug}>
+                  <Link
+                    href={paths.project(project.slug)}
+                    className="focus-ring link-underline text-sm text-soft transition-colors hover:text-ink"
+                  >
+                    {project.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-labelledby="footer-notebook">
+            <h2 id="footer-notebook" className="font-mono text-[10px] uppercase tracking-[0.22em] text-soft">
+              Notebook
+            </h2>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link href={paths.notebook} className="focus-ring link-underline text-sm text-ink transition-colors hover:text-accent">
+                  All articles →
+                </Link>
+              </li>
+              {hubs.map((hub) => (
+                <li key={hub.slug}>
+                  <Link
+                    href={paths.hub(hub.slug)}
+                    className="focus-ring link-underline text-sm text-soft transition-colors hover:text-ink"
+                  >
+                    {hub.name}
+                  </Link>
+                </li>
+              ))}
+              {HAS_GITHUB && SITE.social.github ? (
+                <li>
+                  <a
+                    href={SITE.social.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring link-underline text-sm text-soft transition-colors hover:text-ink"
+                  >
+                    GitHub
+                  </a>
+                </li>
+              ) : null}
+            </ul>
+          </nav>
+        </div>
+
+        <p className="mt-12 text-center font-mono text-[11px] text-soft/60">
+          © {new Date().getFullYear()} {SITE.name} · Designed &amp; built by hand.
         </p>
       </div>
     </footer>

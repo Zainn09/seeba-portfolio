@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { ArticleMeta } from "@/content/types";
 import { formatDate } from "@/lib/articles";
+import { articlePath } from "@/lib/urls";
 import { Reveal, Tilt } from "@/components/ui/primitives";
 
 export function ArticleCard({
@@ -18,7 +19,7 @@ export function ArticleCard({
   return (
     <Reveal delay={(index % 3) * 0.06} className="h-full">
       <Link
-        href={`/blog/${article.slug}`}
+        href={articlePath(article)}
         data-cursor="READ"
         className="focus-ring group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-raised transition-colors hover:border-accent/50"
       >

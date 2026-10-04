@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { FEATURED, allArticles } from "@/lib/articles";
+import { paths, articlePath } from "@/lib/urls";
 import { SectionHead } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/primitives";
 import { ArticleCard } from "@/components/blog/ArticleCard";
-import Link from "next/link";
 
 export default function BlogPreview() {
   const featured = FEATURED[0];
@@ -18,10 +19,10 @@ export default function BlogPreview() {
           serif="notebook"
           aside={
             <Link
-              href="#blog-hub"
+              href={paths.notebook}
               className="focus-ring group inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-soft transition-colors hover:border-accent hover:text-ink"
             >
-              Browse the whole library
+              Browse all {allArticles.length} articles
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           }
@@ -36,7 +37,7 @@ export default function BlogPreview() {
             {rest.map((a, i) => (
               <Reveal key={a.slug} delay={i * 0.05}>
                 <Link
-                  href={`/blog/${a.slug}`}
+                  href={articlePath(a)}
                   data-cursor="READ"
                   className="focus-ring group flex items-start justify-between gap-4 px-5 py-4 transition-colors hover:bg-accent/[0.04]"
                 >

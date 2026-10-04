@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { SignatureMark, PortraitPlaceholder } from "@/components/ui/placeholder";
+import { SignatureMark, BrandPortrait } from "@/components/ui/placeholder";
 import { EASE } from "@/components/ui/primitives";
-import { SITE } from "@/lib/site";
+import { paths } from "@/lib/urls";
 
 const AHScene = dynamic(() => import("@/components/signature/AHScene"), {
   ssr: false,
@@ -35,6 +36,10 @@ export default function Signature3D() {
     if (inView) setStarted(true);
   }, [inView]);
 
+  // The three.js scene is the heaviest code on the site, so it is only fetched
+  // once the section is actually on screen — and never for reduced-motion users.
+  const show3D = started && !reduce;
+
   return (
     <section
       id="signature"
@@ -51,7 +56,13 @@ export default function Signature3D() {
             transition={{ duration: 1.4, ease: EASE, delay: 0.2 }}
             className="absolute inset-0"
           >
-            <AHScene />
+            {show3D ? (
+              <AHScene />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center" aria-hidden>
+                <SignatureMark className="w-56 text-accent/30" label="Abdul Haseeb" />
+              </div>
+            )}
           </motion.div>
           <div className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.28em] text-soft/60" aria-hidden>
             3D / BRAND MARK
@@ -84,7 +95,7 @@ export default function Signature3D() {
               className="relative z-10 -mb-10 w-44 rotate-[-3deg] overflow-hidden rounded-xl border border-line bg-raised shadow-xl sm:w-52"
               data-cursor="THIS IS MINE"
             >
-              <PortraitPlaceholder className="aspect-[4/5] w-full" note="YOUR_PROFILE_IMAGE" />
+              <BrandPortrait className="aspect-[4/5] w-full" />
             </motion.div>
 
             {/* Signature draws onto the screen */}
@@ -98,25 +109,15 @@ export default function Signature3D() {
               >
                 <SignatureMark animated={started && !reduce} className="w-full" />
               </motion.div>
-              <motion.span
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={started ? { opacity: 1 } : {}}
                 transition={{ duration: 0.6, delay: 1.1 }}
-                className="mt-1 inline-block font-mono text-[10px] uppercase tracking-[0.25em] text-soft/70"
+                className="mt-3 max-w-md font-serif text-xl italic leading-snug text-ink sm:text-2xl"
               >
-                YOUR_SIGNATURE_HERE — replace in /images
-              </motion.span>
+                “I build what I learn, and I learn from everything I build.”
+              </motion.p>
             </div>
-
-            {/* Personal statement */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={started ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.9, ease: EASE, delay: 0.7 }}
-              className="mt-6 max-w-md font-serif text-2xl italic leading-snug text-ink sm:text-3xl"
-            >
-              “I build what I learn, and I learn from everything I build.”
-            </motion.p>
 
             {/* Technical metadata fades in afterward */}
             <motion.div
@@ -133,6 +134,26 @@ export default function Signature3D() {
                   {m}
                 </span>
               ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={started ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mt-6 flex flex-wrap gap-4"
+            >
+              <Link
+                href={paths.projects}
+                className="focus-ring rounded-full border border-line px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-soft transition-colors hover:border-accent hover:text-ink"
+              >
+                Project case studies →
+              </Link>
+              <Link
+                href={paths.notebook}
+                className="focus-ring rounded-full border border-line px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-soft transition-colors hover:border-accent hover:text-ink"
+              >
+                Developer notebook →
+              </Link>
             </motion.div>
           </div>
         </div>

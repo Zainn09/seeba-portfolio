@@ -6,6 +6,19 @@
 import { allArticles } from "../lib/articles";
 import { getArticleContent } from "../lib/articleContent";
 import { extractFaqs } from "../lib/faq";
+import { articlePath, paths } from "../lib/urls";
+import { hubContent } from "../content/hubs";
+import { projectCaseStudies } from "../content/projects";
+
+/** Every internal path the site actually serves. */
+const ROUTES = new Set<string>([
+  paths.home,
+  paths.projects,
+  paths.notebook,
+  ...hubContent.map((hub) => paths.hub(hub.slug)),
+  ...projectCaseStudies.map((project) => paths.project(project.slug)),
+  ...allArticles.map((article) => articlePath(article)),
+]);
 
 function cw(md: string): number {
   let t = md;
@@ -59,9 +72,12 @@ for (const a of allArticles) {
   if (hasFaqHeading && faqs.length === 0) { faqMismatch++; issues.push(`${a.slug}: FAQ heading present but 0 parsed FAQs`); }
   if (!hasFaqHeading && faqs.length > 0) { faqMismatch++; issues.push(`${a.slug}: FAQs parsed without FAQ heading`); }
 
-  // internal links resolve
-  const links = [...md.matchAll(/\]\(\/blog\/([\w-]+)\)/g)].map((m) => m[1]);
-  for (const l of links) if (!slugs.includes(l)) { badLinks++; issues.push(`${a.slug}: broken internal link /blog/${l}`); }
+  // internal links resolve to a real page (hash fragments ignored)
+  const links = [...md.matchAll(/\]\((\/[^)\s]+)\)/g)].map((m) => m[1].split("#")[0]);
+  for (const l of links) {
+    if (!l || !l.startsWith("/") || l.startsWith("//")) continue;
+    if (!ROUTES.has(l)) { badLinks++; issues.push(`${a.slug}: broken internal link ${l}`); }
+  }
 
   // H2/H3 variety
   const h2 = (md.match(/^## /gm) ?? []).length;

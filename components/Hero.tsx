@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { SITE } from "@/lib/site";
-import { PortraitPlaceholder } from "@/components/ui/placeholder";
+import { paths } from "@/lib/urls";
+import { BrandPortrait } from "@/components/ui/placeholder";
 import { EASE } from "@/components/ui/primitives";
 
 function useParallax() {
@@ -57,6 +59,7 @@ export default function Hero() {
             <span className="hidden sm:inline">BSCS / {SITE.university.toUpperCase()}</span>
           </motion.p>
 
+          {/* The single H1 for the homepage: who this is, and what he does. */}
           <h1 className="mt-6 font-display font-bold tracking-tightest text-ink">
             <span className="block overflow-hidden">
               <motion.span
@@ -79,6 +82,10 @@ export default function Hero() {
                 <span className="text-accent">Haseeb</span>
                 <span className="text-accent">.</span>
               </motion.span>
+            </span>
+            <span className="sr-only">
+              — BSCS student, Python developer and software builder learning toward AI and
+              machine learning
             </span>
           </h1>
 
@@ -113,7 +120,11 @@ export default function Hero() {
             real software — from a café website to console programs to an Android
             e-commerce app — with the long-term goal of expertise in{" "}
             <strong className="font-medium text-ink">Artificial Intelligence</strong> and{" "}
-            <strong className="font-medium text-ink">Machine Learning</strong>.
+            <strong className="font-medium text-ink">Machine Learning</strong>. I also write{" "}
+            <Link href={paths.notebook} className="focus-ring link-underline text-ink">
+              technical notes
+            </Link>{" "}
+            about everything I&apos;m learning.
           </motion.p>
 
           <motion.div
@@ -122,14 +133,14 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: EASE, delay: 1.2 }}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <a
-              href="#projects"
+            <Link
+              href={paths.projects}
               data-cursor="BUILD"
               className="focus-ring group inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 font-mono text-xs font-medium uppercase tracking-[0.16em] text-on-accent transition-transform hover:-translate-y-0.5"
             >
               See the work
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            </Link>
             <a
               href="#contact"
               className="focus-ring link-underline font-mono text-xs uppercase tracking-[0.16em] text-soft hover:text-ink"
@@ -150,7 +161,7 @@ export default function Hero() {
             className="relative aspect-[4/5] overflow-hidden rounded-t-[10rem] rounded-b-2xl border border-line shadow-2xl"
             style={{ transform: `translateY(${y * -10}px)` }}
           >
-            <PortraitPlaceholder className="h-full w-full" />
+            <BrandPortrait className="h-full w-full" />
           </div>
 
           {/* floating metadata chips */}

@@ -2,11 +2,21 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { SITE } from "@/lib/site";
+import Link from "next/link";
+import { SITE, HAS_GITHUB, HAS_EMAIL } from "@/lib/site";
+import { paths } from "@/lib/urls";
 import { SectionHead } from "@/components/ui/section";
 import { Reveal, EASE } from "@/components/ui/primitives";
 
 type Errors = { name?: string; email?: string; message?: string };
+
+const OPPORTUNITIES = [
+  "Python opportunities",
+  "AI / ML opportunities",
+  "Software-development opportunities",
+  "Internships",
+  "Learning-focused collaborations",
+];
 
 export default function Contact() {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
@@ -28,15 +38,11 @@ export default function Contact() {
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length > 0) return;
+    if (!SITE.email) return;
 
-    if (SITE.email.startsWith("YOUR_")) {
-      // No backend, no fake success — hand the draft to the mailbox app.
-      const body = encodeURIComponent(`Hi Abdul,\n\n${values.message}\n\n— ${values.name} (${values.email})`);
-      window.location.href = `mailto:${SITE.email}?subject=Portfolio message from ${encodeURIComponent(values.name)}&body=${body}`;
-    }
-
-    // If a real email + backend existed, the fetch would go here.
-    // Never showing a "sent!" state that the server hasn't confirmed.
+    // No backend and no fake "sent!" state: the draft is handed to the mail app.
+    const body = encodeURIComponent(`Hi Abdul,\n\n${values.message}\n\n— ${values.name} (${values.email})`);
+    window.location.href = `mailto:${SITE.email}?subject=Portfolio message from ${encodeURIComponent(values.name)}&body=${body}`;
   }
 
   const field = (key: keyof Errors) =>
@@ -67,13 +73,7 @@ export default function Contact() {
               me keep growing — I&apos;m listening.
             </p>
             <ul className="mt-8 space-y-2.5">
-              {[
-                "Python opportunities",
-                "AI / ML opportunities",
-                "Software-development opportunities",
-                "Internships",
-                "Learning-focused collaborations",
-              ].map((o) => (
+              {OPPORTUNITIES.map((o) => (
                 <li key={o} className="flex items-center gap-3 text-soft">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
                   {o}
@@ -81,107 +81,168 @@ export default function Contact() {
               ))}
             </ul>
 
-            <div className="mt-10 space-y-3 border-t border-line pt-8">
-              <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em]">
-                <span className="text-soft">Email</span>
-                <span className="text-ink">{SITE.email.startsWith("YOUR_") ? "add via /lib/site.ts" : SITE.email}</span>
-              </div>
-              <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em]">
-                <span className="text-soft">GitHub</span>
-                <span className="text-ink">{SITE.githubUrl.startsWith("YOUR_") ? "add your handle" : "linked"}</span>
-              </div>
-              <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em]">
-                <span className="text-soft">LinkedIn</span>
-                <span className="text-ink">{SITE.linkedinUrl.startsWith("YOUR_") ? "add your profile" : "linked"}</span>
-              </div>
+            <div className="mt-10 rounded-xl border border-line bg-raised p-6">
+              <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-soft">
+                Before you write
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-soft">
+                The fastest way to judge my work is to read it: six documented{" "}
+                <Link href={paths.projects} className="focus-ring link-underline text-ink">
+                  project case studies
+                </Link>{" "}
+                and a{" "}
+                <Link href={paths.notebook} className="focus-ring link-underline text-ink">
+                  developer notebook
+                </Link>{" "}
+                covering Python, Android and AI/ML fundamentals.
+              </p>
+              {HAS_GITHUB && SITE.social.github ? (
+                <a
+                  href={SITE.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-accent"
+                >
+                  GitHub profile →
+                </a>
+              ) : null}
             </div>
           </div>
 
           <Reveal delay={0.1}>
-            <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-line bg-raised p-6 sm:p-8">
-              <div className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-soft">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    value={values.name}
-                    onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
-                    aria-invalid={!!(attempted && errors.name)}
-                    aria-describedby={errors.name ? "name-err" : undefined}
-                    className={`focus-ring w-full rounded-lg border bg-surface px-4 py-3 text-ink transition-colors ${field("name")}`}
-                    placeholder="How should I address you?"
-                  />
-                  {attempted && errors.name && (
-                    <p id="name-err" className="mt-1.5 text-sm text-red-400">{errors.name}</p>
-                  )}
+            {HAS_EMAIL && SITE.email ? (
+              <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-line bg-raised p-6 sm:p-8">
+                <h3 className="font-display text-2xl font-semibold text-ink">Send a message</h3>
+                <p className="mt-2 text-sm leading-relaxed text-soft">
+                  This opens a draft in your email app addressed to {SITE.email} — the
+                  message comes from your own inbox, so nothing is silently dropped.
+                </p>
+
+                <div className="mt-6 space-y-5">
+                  <div>
+                    <label htmlFor="name" className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-soft">
+                      Your name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      value={values.name}
+                      onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
+                      aria-invalid={!!(attempted && errors.name)}
+                      aria-describedby={errors.name ? "name-err" : undefined}
+                      className={`focus-ring w-full rounded-lg border bg-surface px-4 py-3 text-ink transition-colors ${field("name")}`}
+                      placeholder="Your name"
+                    />
+                    {attempted && errors.name && (
+                      <p id="name-err" className="mt-1.5 text-sm text-red-400">{errors.name}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-soft">
+                      Your email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      value={values.email}
+                      onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
+                      aria-invalid={!!(attempted && errors.email)}
+                      aria-describedby={errors.email ? "email-err" : undefined}
+                      className={`focus-ring w-full rounded-lg border bg-surface px-4 py-3 text-ink transition-colors ${field("email")}`}
+                      placeholder="you@example.com"
+                    />
+                    {attempted && errors.email && (
+                      <p id="email-err" className="mt-1.5 text-sm text-red-400">{errors.email}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-soft">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      value={values.message}
+                      onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
+                      aria-invalid={!!(attempted && errors.message)}
+                      aria-describedby={errors.message ? "message-err" : undefined}
+                      className={`focus-ring w-full resize-none rounded-lg border bg-surface px-4 py-3 text-ink transition-colors ${field("message")}`}
+                      placeholder="What are you building, or what should we build?"
+                    />
+                    {attempted && errors.message && (
+                      <p id="message-err" className="mt-1.5 text-sm text-red-400">{errors.message}</p>
+                    )}
+                  </div>
+
+                  <motion.button
+                    type="submit"
+                    data-cursor="SEND"
+                    whileHover={reduce ? undefined : { y: -2 }}
+                    className="focus-ring group inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent px-6 py-4 font-mono text-xs font-medium uppercase tracking-[0.18em] text-on-accent"
+                  >
+                    Start a Conversation
+                    <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                  </motion.button>
+
+                  <AnimatePresence>
+                    {attempted && Object.keys(errors).length === 0 && (
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="text-center text-xs leading-relaxed text-soft"
+                        role="status"
+                      >
+                        Your email app should now be open with the message ready to send.
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
                 </div>
-
-                <div>
-                  <label htmlFor="email" className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-soft">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={values.email}
-                    onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
-                    aria-invalid={!!(attempted && errors.email)}
-                    aria-describedby={errors.email ? "email-err" : undefined}
-                    className={`focus-ring w-full rounded-lg border bg-surface px-4 py-3 text-ink transition-colors ${field("email")}`}
-                    placeholder="you@example.com"
-                  />
-                  {attempted && errors.email && (
-                    <p id="email-err" className="mt-1.5 text-sm text-red-400">{errors.email}</p>
-                  )}
+              </form>
+            ) : (
+              <div className="rounded-2xl border border-line bg-raised p-6 sm:p-8">
+                <h3 className="font-display text-2xl font-semibold text-ink">
+                  Open to opportunities
+                </h3>
+                <p className="mt-3 leading-relaxed text-soft">
+                  I&apos;m a BSCS student looking for internships and learning-focused
+                  work in Python, software development and AI/ML. Direct contact
+                  details will be published here as soon as they&apos;re finalised — in
+                  the meantime, the two best places to see how I work are below.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    href={paths.projects}
+                    className="focus-ring rounded-full bg-accent px-6 py-3 font-mono text-xs font-medium uppercase tracking-[0.16em] text-on-accent transition-transform hover:-translate-y-0.5"
+                  >
+                    Read the case studies →
+                  </Link>
+                  <Link
+                    href={paths.notebook}
+                    className="focus-ring rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-[0.16em] text-soft transition-colors hover:border-accent hover:text-ink"
+                  >
+                    Open the notebook
+                  </Link>
                 </div>
-
-                <div>
-                  <label htmlFor="message" className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-soft">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    value={values.message}
-                    onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
-                    aria-invalid={!!(attempted && errors.message)}
-                    aria-describedby={errors.message ? "message-err" : undefined}
-                    className={`focus-ring w-full resize-none rounded-lg border bg-surface px-4 py-3 text-ink transition-colors ${field("message")}`}
-                    placeholder="What are you building, or what should we build?"
-                  />
-                  {attempted && errors.message && (
-                    <p id="message-err" className="mt-1.5 text-sm text-red-400">{errors.message}</p>
-                  )}
-                </div>
-
-                <motion.button
-                  type="submit"
-                  data-cursor="SEND"
-                  whileHover={reduce ? undefined : { y: -2 }}
-                  className="focus-ring group inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent px-6 py-4 font-mono text-xs font-medium uppercase tracking-[0.18em] text-on-accent"
-                >
-                  Start a Conversation
-                  <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-                </motion.button>
-
-                <AnimatePresence>
-                  {attempted && Object.keys(errors).length === 0 && SITE.email.startsWith("YOUR_") && (
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="text-center text-xs leading-relaxed text-soft"
-                    >
-                      Sending opens your email app — no fake &ldquo;sent!&rdquo; state here
-                      until a backend is wired in.
-                    </motion.p>
-                  )}
-                </AnimatePresence>
+                {HAS_GITHUB && SITE.social.github ? (
+                  <a
+                    href={SITE.social.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-accent"
+                  >
+                    GitHub →
+                  </a>
+                ) : null}
               </div>
-            </form>
+            )}
           </Reveal>
         </div>
       </div>

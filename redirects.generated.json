@@ -1,0 +1,210 @@
+[
+  {
+    "source": "/blog",
+    "destination": "/notebook"
+  },
+  {
+    "source": "/blog/ai-ml-mistakes-beginners",
+    "destination": "/notebook/ai-ml/ai-ml-mistakes-beginners"
+  },
+  {
+    "source": "/blog/ai-project-ideas-students",
+    "destination": "/notebook/ai-ml/ai-project-ideas-students"
+  },
+  {
+    "source": "/blog/android-app-architecture-beginners",
+    "destination": "/notebook/android/android-app-architecture-beginners"
+  },
+  {
+    "source": "/blog/bank-management-system-python",
+    "destination": "/notebook/projects/bank-management-system-python"
+  },
+  {
+    "source": "/blog/beginner-mistakes-python",
+    "destination": "/notebook/problem-solving/beginner-mistakes-python"
+  },
+  {
+    "source": "/blog/break-down-problems",
+    "destination": "/notebook/problem-solving/break-down-problems"
+  },
+  {
+    "source": "/blog/building-projects-while-studying",
+    "destination": "/notebook/student-journey/building-projects-while-studying"
+  },
+  {
+    "source": "/blog/cloud-firestore-basics",
+    "destination": "/notebook/android/cloud-firestore-basics"
+  },
+  {
+    "source": "/blog/coding-challenges-benefits",
+    "destination": "/notebook/problem-solving/coding-challenges-benefits"
+  },
+  {
+    "source": "/blog/computer-science-vs-software-engineering",
+    "destination": "/notebook/student-journey/computer-science-vs-software-engineering"
+  },
+  {
+    "source": "/blog/console-app-design",
+    "destination": "/notebook/software-development/console-app-design"
+  },
+  {
+    "source": "/blog/debugging-strategies",
+    "destination": "/notebook/problem-solving/debugging-strategies"
+  },
+  {
+    "source": "/blog/developer-portfolio-guide",
+    "destination": "/notebook/student-journey/developer-portfolio-guide"
+  },
+  {
+    "source": "/blog/firebase-auth-android",
+    "destination": "/notebook/android/firebase-auth-android"
+  },
+  {
+    "source": "/blog/first-programming-language",
+    "destination": "/notebook/student-journey/first-programming-language"
+  },
+  {
+    "source": "/blog/free-ml-learning-path",
+    "destination": "/notebook/ai-ml/free-ml-learning-path"
+  },
+  {
+    "source": "/blog/git-commands-you-need",
+    "destination": "/notebook/software-development/git-commands-you-need"
+  },
+  {
+    "source": "/blog/git-vs-github",
+    "destination": "/notebook/software-development/git-vs-github"
+  },
+  {
+    "source": "/blog/github-for-students",
+    "destination": "/notebook/student-journey/github-for-students"
+  },
+  {
+    "source": "/blog/java-android-development",
+    "destination": "/notebook/android/java-android-development"
+  },
+  {
+    "source": "/blog/learn-programming-as-student",
+    "destination": "/notebook/student-journey/learn-programming-as-student"
+  },
+  {
+    "source": "/blog/library-management-system-python",
+    "destination": "/notebook/projects/library-management-system-python"
+  },
+  {
+    "source": "/blog/linear-regression-explained",
+    "destination": "/notebook/ai-ml/linear-regression-explained"
+  },
+  {
+    "source": "/blog/machine-learning-basics",
+    "destination": "/notebook/ai-ml/machine-learning-basics"
+  },
+  {
+    "source": "/blog/material-design-android",
+    "destination": "/notebook/android/material-design-android"
+  },
+  {
+    "source": "/blog/pandas-first-steps",
+    "destination": "/notebook/ai-ml/pandas-first-steps"
+  },
+  {
+    "source": "/blog/preparing-for-internships",
+    "destination": "/notebook/student-journey/preparing-for-internships"
+  },
+  {
+    "source": "/blog/programming-logic",
+    "destination": "/notebook/problem-solving/programming-logic"
+  },
+  {
+    "source": "/blog/python-data-structures",
+    "destination": "/notebook/python/python-data-structures"
+  },
+  {
+    "source": "/blog/python-dictionaries-explained",
+    "destination": "/notebook/python/python-dictionaries-explained"
+  },
+  {
+    "source": "/blog/python-error-handling",
+    "destination": "/notebook/python/python-error-handling"
+  },
+  {
+    "source": "/blog/python-file-handling",
+    "destination": "/notebook/python/python-file-handling"
+  },
+  {
+    "source": "/blog/python-for-machine-learning",
+    "destination": "/notebook/ai-ml/python-for-machine-learning"
+  },
+  {
+    "source": "/blog/python-functions-guide",
+    "destination": "/notebook/python/python-functions-guide"
+  },
+  {
+    "source": "/blog/python-learning-roadmap",
+    "destination": "/notebook/python/python-learning-roadmap"
+  },
+  {
+    "source": "/blog/python-list-comprehensions",
+    "destination": "/notebook/python/python-list-comprehensions"
+  },
+  {
+    "source": "/blog/python-oop-concepts",
+    "destination": "/notebook/python/python-oop-concepts"
+  },
+  {
+    "source": "/blog/python-project-structure",
+    "destination": "/notebook/software-development/python-project-structure"
+  },
+  {
+    "source": "/blog/python-projects-beginners",
+    "destination": "/notebook/projects/python-projects-beginners"
+  },
+  {
+    "source": "/blog/python-standard-library",
+    "destination": "/notebook/python/python-standard-library"
+  },
+  {
+    "source": "/blog/python-virtual-environments",
+    "destination": "/notebook/python/python-virtual-environments"
+  },
+  {
+    "source": "/blog/python-vs-java",
+    "destination": "/notebook/python/python-vs-java"
+  },
+  {
+    "source": "/blog/readme-that-works",
+    "destination": "/notebook/projects/readme-that-works"
+  },
+  {
+    "source": "/blog/shopping-cart-logic-android",
+    "destination": "/notebook/android/shopping-cart-logic-android"
+  },
+  {
+    "source": "/blog/sneakerstore-ecommerce-app",
+    "destination": "/notebook/projects/sneakerstore-ecommerce-app"
+  },
+  {
+    "source": "/blog/student-management-system-python",
+    "destination": "/notebook/projects/student-management-system-python"
+  },
+  {
+    "source": "/blog/supervised-vs-unsupervised",
+    "destination": "/notebook/ai-ml/supervised-vs-unsupervised"
+  },
+  {
+    "source": "/blog/thinking-before-coding",
+    "destination": "/notebook/problem-solving/thinking-before-coding"
+  },
+  {
+    "source": "/blog/tutorial-to-project",
+    "destination": "/notebook/student-journey/tutorial-to-project"
+  },
+  {
+    "source": "/blog/what-is-a-dataset",
+    "destination": "/notebook/ai-ml/what-is-a-dataset"
+  },
+  {
+    "source": "/blog/what-is-artificial-intelligence",
+    "destination": "/notebook/ai-ml/what-is-artificial-intelligence"
+  }
+]

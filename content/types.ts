@@ -72,5 +72,8 @@ export interface ArticleMeta extends Article {
   updatedDate?: string;
   wordCount: number;
   imageAlt: string;
+  /** Optimised in-page image (webp). */
   origPath: string;
+  /** PNG used for Open Graph / Twitter cards and Article schema. */
+  socialPath: string;
 }

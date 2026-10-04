@@ -1,20 +1,30 @@
 "use client";
 
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 
 /**
- * Tasteful, obviously-swappable placeholders. Each one renders a branded
- * neutral composition and announces the replacement asset path in the dev
- * markup — so nothing looks like an accidental broken image.
+ * The brand portrait. Renders a real configured photograph when one exists;
+ * otherwise a designed monogram panel — never "YOUR_PROFILE_IMAGE" text or a
+ * broken <img>. To use a real photo, set NEXT_PUBLIC_PORTRAIT_IMAGE to a file
+ * in /public/images and it is optimised, sized and alt-texted automatically.
  */
+export function BrandPortrait({ className }: { className?: string }) {
+  if (SITE.portrait.src) {
+    return (
+      <div className={`relative overflow-hidden ${className ?? ""}`}>
+        <Image
+          src={SITE.portrait.src}
+          alt={SITE.portrait.alt}
+          width={SITE.portrait.width}
+          height={SITE.portrait.height}
+          sizes="(min-width: 1024px) 400px, 90vw"
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
 
-export function PortraitPlaceholder({
-  className,
-  note = "YOUR_PROFILE_IMAGE",
-}: {
-  className?: string;
-  note?: string;
-}) {
   return (
     <div className={`portrait-placeholder relative overflow-hidden ${className ?? ""}`}>
       <div className="bg-grid-fine absolute inset-0 opacity-40" aria-hidden />
@@ -23,60 +33,34 @@ export function PortraitPlaceholder({
           className="font-display text-[18vw] font-bold leading-none tracking-tightest text-ink/10 sm:text-[11vw]"
           aria-hidden
         >
-          AH
+          {SITE.initials}
         </span>
-        <div className="mt-2 h-8 w-px bg-ink/20" aria-hidden />
-        <span className="mt-3 font-mono text-[10px] uppercase tracking-[0.25em] text-soft">
-          {note}
+        <span className="mt-2 h-8 w-px bg-ink/20" aria-hidden />
+        <span className="mt-3 font-display text-lg font-semibold tracking-tightest text-ink">
+          {SITE.name}
         </span>
-        <span className="mt-1 font-mono text-[10px] tracking-wider text-soft/70">
-          {SITE.profileImage}
+        <span className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-soft">
+          BSCS / PYTHON / AI-ML
         </span>
       </div>
-      <div
-        className="absolute bottom-3 left-3 h-2 w-2 rounded-full bg-accent"
-        aria-hidden
-      />
-    </div>
-  );
-}
-
-export function MediaPlaceholder({
-  className,
-  label = "PROJECT_IMAGE_PLACEHOLDER",
-  detail,
-}: {
-  className?: string;
-  label?: string;
-  detail?: string;
-}) {
-  return (
-    <div
-      className={`relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-line bg-raised ${className ?? ""}`}
-    >
-      <div className="bg-grid-fine absolute inset-0 opacity-50" aria-hidden />
-      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-soft">
-        {label}
-      </span>
-      {detail ? (
-        <span className="mt-1 px-4 text-center font-mono text-[10px] text-soft/70">
-          {detail}
-        </span>
-      ) : null}
+      <div className="absolute bottom-3 left-3 h-2 w-2 rounded-full bg-accent" aria-hidden />
     </div>
   );
 }
 
 /**
- * Inline SVG signature used until Abdul drops in his real signature PNG/SVG.
- * Replacing one asset in /images is all that's required.
+ * The hand-drawn signature mark used as the personal brand device. It is a
+ * designed inline SVG (not a missing asset), so it renders instantly with no
+ * image request and no layout shift.
  */
 export function SignatureMark({
   className,
   animated = false,
+  label = "Abdul Haseeb signature mark",
 }: {
   className?: string;
   animated?: boolean;
+  label?: string;
 }) {
   return (
     <svg
@@ -85,7 +69,7 @@ export function SignatureMark({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
-      aria-label="Abdul Haseeb signature placeholder"
+      aria-label={label}
     >
       <path
         className={animated ? "signature-path" : ""}

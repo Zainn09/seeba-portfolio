@@ -6,8 +6,39 @@ import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
 import type { Root as MdastRoot } from "mdast";
+import { LEGACY_LINK_MAP } from "./articles";
+import { stripHash } from "./urls";
 
 export type Heading = { id: string; text: string; level: number; children: Heading[] };
+
+type HastNode = {
+  type: string;
+  tagName?: string;
+  properties?: Record<string, unknown>;
+  children?: HastNode[];
+};
+
+/**
+ * Article bodies were authored when articles lived at /blog/<slug>. Rather than
+ * editing 51 files, links are rewritten to the canonical notebook URL at render
+ * time — so the site never links to a redirecting URL.
+ */
+function rewriteLegacyLinks(node: HastNode) {
+  if (node.type === "element" && node.tagName === "a") {
+    const href = node.properties?.href;
+    if (typeof href === "string") {
+      const { pathname, hash } = stripHash(href);
+      if (pathname.startsWith("/blog/")) {
+        const slug = pathname.slice("/blog/".length).replace(/\/+$/, "");
+        const target = LEGACY_LINK_MAP[slug];
+        if (target) node.properties!.href = `${target}${hash}`;
+      } else if (pathname === "/blog") {
+        node.properties!.href = `/notebook${hash}`;
+      }
+    }
+  }
+  node.children?.forEach(rewriteLegacyLinks);
+}
 
 /**
  * Serialize markdown (with GFM tables, fenced code + highlighted languages,
@@ -50,6 +81,7 @@ export async function markdownToHtml(
       }
     })
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(() => (tree: HastNode) => rewriteLegacyLinks(tree))
     .use(rehypeSlug)
     .use(rehypeHighlight, { detect: false, ignoreMissing: true })
     .use(rehypeStringify)

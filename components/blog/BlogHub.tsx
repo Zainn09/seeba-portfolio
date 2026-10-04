@@ -1,12 +1,20 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { CATEGORIES, filterArticles } from "@/lib/articles";
 import type { FilterId } from "@/content/types";
 import { Reveal } from "@/components/ui/primitives";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import { hubs } from "@/content/articles";
+import { paths } from "@/lib/urls";
 
+/**
+ * In-page notebook browser. Search and filters are local component state — they
+ * never write a query string, so there is no way for a crawler to discover
+ * thousands of filtered duplicate URLs. Each hub card is a real link to a
+ * static hub page.
+ */
 export default function BlogHub() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<FilterId>("all");
@@ -27,10 +35,24 @@ export default function BlogHub() {
             Things I&apos;m <em className="font-serif font-normal italic text-soft">learning</em> &amp; building
           </h2>
           <p className="mt-5 max-w-xl leading-relaxed text-soft">
-            An indexed collection of notes, tutorials, and project walkthroughs —
-            the same knowledge I&apos;m using to build my Python and AI/ML foundation.
-            Search it, filter it, read what matters to you.
+            An indexed collection of notes, tutorials, and project walkthroughs — the
+            same knowledge I&apos;m using to build my Python and AI/ML foundation.
+            Search it, filter it, or browse the full notebook.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href={paths.notebook}
+              className="focus-ring rounded-full bg-accent px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-on-accent transition-transform hover:-translate-y-0.5"
+            >
+              Open the full notebook →
+            </Link>
+            <Link
+              href={paths.projects}
+              className="focus-ring rounded-full border border-line px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-soft transition-colors hover:border-accent hover:text-ink"
+            >
+              Project case studies
+            </Link>
+          </div>
         </Reveal>
 
         {/* search + filters */}
@@ -54,14 +76,14 @@ export default function BlogHub() {
             </label>
             <div
               className="flex flex-wrap gap-2"
-              role="tablist"
+              role="group"
               aria-label="Filter articles by topic"
             >
               {CATEGORIES.map((c) => (
                 <button
                   key={c.id}
-                  role="tab"
-                  aria-selected={filter === c.id}
+                  type="button"
+                  aria-pressed={filter === c.id}
                   onClick={() => setFilter(c.id as FilterId)}
                   className={`focus-ring rounded-full border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
                     filter === c.id
@@ -78,11 +100,11 @@ export default function BlogHub() {
 
         {/* result count */}
         <Reveal delay={0.12} className="mt-8">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-soft">
+          <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-soft">
             <span>{results.length} article{results.length === 1 ? "" : "s"}</span>
             <span className="h-px w-10 bg-line" aria-hidden />
             <span>{filter === "all" ? "all topics" : filter.replace("-", " ")}</span>
-          </div>
+          </p>
         </Reveal>
 
         {/* grid — editorial mixed sizes */}
@@ -97,25 +119,27 @@ export default function BlogHub() {
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-soft">
               Nothing matches &ldquo;{query}&rdquo;
             </p>
-            <p className="mt-2 text-sm text-soft/70">Try a broader keyword, or clear the filters.</p>
+            <p className="mt-2 text-sm text-soft/70">
+              Try a broader keyword, clear the filters, or{" "}
+              <Link href={paths.notebook} className="focus-ring link-underline text-ink">
+                browse the full notebook
+              </Link>
+              .
+            </p>
           </div>
         )}
 
         {/* hubs */}
         <Reveal delay={0.1} className="mt-20">
           <div className="border-t border-line pt-10">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-soft">Explore by hub</h3>
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-soft">
+              Explore by hub
+            </h3>
             <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {hubs.map((h) => (
-                <a
+                <Link
                   key={h.slug}
-                  href={`#blog-hub`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setQuery("");
-                    setFilter(h.slug as FilterId);
-                    document.getElementById("blog-hub")?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  href={paths.hub(h.slug)}
                   style={{ ["--hub" as string]: h.accent }}
                   className="focus-ring group rounded-xl border border-line bg-raised p-5 transition-colors hover:border-accent/50"
                 >
@@ -126,10 +150,10 @@ export default function BlogHub() {
                   />
                   <h4 className="mt-3 font-display text-lg font-semibold text-ink">{h.name}</h4>
                   <p className="mt-1 text-sm leading-relaxed text-soft">{h.tagline}</p>
-                  <span className="mt-3 inline-block font-mono text-[10px] uppercase tracking-[0.16em] text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                    Filter →
+                  <span className="mt-3 inline-block font-mono text-[10px] uppercase tracking-[0.16em] text-accent">
+                    Open hub →
                   </span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

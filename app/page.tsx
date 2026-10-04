@@ -1,4 +1,8 @@
-import { SITE } from "@/lib/site";
+import type { Metadata } from "next";
+import { SITE, SEO } from "@/lib/site";
+import { absoluteUrl, paths } from "@/lib/urls";
+import { graph, profilePageNode } from "@/lib/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
 import Navbar from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
 import SkipLink from "@/components/SkipLink";
@@ -16,40 +20,22 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
+export const metadata: Metadata = {
+  title: SEO.title,
+  description: SEO.description,
+  alternates: { canonical: paths.home },
+  openGraph: {
+    type: "profile",
+    url: absoluteUrl(paths.home),
+    siteName: `${SITE.name} — Portfolio & Notebook`,
+    title: SEO.title,
+    description: SEO.description,
+    images: [{ url: SEO.ogImage, width: 1200, height: 630, alt: SEO.ogImageAlt }],
+  },
+};
+
 export default function Home() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        name: SITE.name,
-        url: SITE.baseUrl,
-        image: `${SITE.baseUrl}${SITE.profileImage}`,
-        jobTitle: "BSCS Student · Python Developer · AI/ML Enthusiast",
-        alumniOf: { "@type": "CollegeOrUniversity", name: SITE.university },
-        knowsAbout: [
-          "Python",
-          "Java",
-          "HTML",
-          "CSS",
-          "XML",
-          "Android Development",
-          "SQLite",
-          "Firebase",
-          "Git",
-          "Artificial Intelligence",
-          "Machine Learning",
-        ],
-        description:
-          "BSCS student and Python developer focused on problem solving, real-world software projects, and building toward Artificial Intelligence and Machine Learning.",
-      },
-      {
-        "@type": "WebSite",
-        name: `${SITE.name} — Personal Brand`,
-        url: SITE.baseUrl,
-      },
-    ],
-  };
+  const jsonLd = graph([profilePageNode()]);
 
   return (
     <>
@@ -71,10 +57,7 @@ export default function Home() {
       </main>
       <Footer />
       <BackToTop />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

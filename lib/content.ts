@@ -243,16 +243,16 @@ export const skills: Skill[] = [
   { name: "Responsive", group: "Frontend", weight: 1, links: ["CSS3", "HTML5"] },
 ];
 
-export const githubPlaceholder = {
-  note: "The repositories link here when a GitHub handle is added.",
-  cta: "View my repositories",
-};
-
+/**
+ * Primary navigation. Page links (/projects, /notebook) are real crawlable
+ * URLs; the rest are homepage anchors written as absolute paths so they also
+ * work when rendered on subpages.
+ */
 export const navLinks = [
-  { id: "01", label: "About", href: "#about" },
-  { id: "02", label: "Journey", href: "#journey" },
-  { id: "03", label: "Projects", href: "#projects" },
-  { id: "04", label: "Thinking", href: "#thinking" },
-  { id: "05", label: "Notebook", href: "#blog-hub" },
-  { id: "06", label: "Contact", href: "#contact" },
+  { id: "01", label: "About", href: "/#about" },
+  { id: "02", label: "Journey", href: "/#journey" },
+  { id: "03", label: "Projects", href: "/projects" },
+  { id: "04", label: "Thinking", href: "/#thinking" },
+  { id: "05", label: "Notebook", href: "/notebook" },
+  { id: "06", label: "Contact", href: "/#contact" },
 ];
