@@ -160,7 +160,12 @@ If you can't run Playwright, record manually:
 
 async function recordWithPlaywright() {
   // Dynamic import so the file can be loaded without playwright installed
-  const { chromium } = await import("playwright");
+  // playwright is optional dev dep, only needed for --record
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const mod = await import("playwright");
+  // @ts-ignore
+  const { chromium } = mod as any;
   mkdirSync(OUT_DIR, { recursive: true });
 
   const browser = await chromium.launch();
