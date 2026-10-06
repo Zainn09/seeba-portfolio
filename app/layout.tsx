@@ -3,8 +3,6 @@ import Script from "next/script";
 import { ThemeProvider } from "@/lib/theme";
 import { fontDisplay, fontMono, fontSerif } from "@/lib/fonts";
 import { SITE, SEO } from "@/lib/site";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,9 +18,6 @@ export const metadata: Metadata = {
   category: "Technology",
   alternates: {
     canonical: "/",
-  },
-  verification: {
-    google: "sFCobwdgJ47jkotq4vkO_mTo13ORcuoajMbTo7Y_O_A",
   },
   openGraph: {
     type: "website",
@@ -64,17 +59,12 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
-<<<<<<< HEAD
-        <Analytics />
-        <SpeedInsights />
-=======
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4078729434854717"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
->>>>>>> origin/arena/01a108d8-seeba-portfolio
       </body>
     </html>
   );
