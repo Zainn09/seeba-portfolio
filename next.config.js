@@ -5,6 +5,12 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // Allow Arena preview hosts to load chunks (fixes ChunkLoadError)
+  allowedDevOrigins: ["*.e2b.app", "*.arena.site", "*.arena.ai"],
+  // Ensure chunks are served correctly in preview
+  experimental: {
+    optimizePackageImports: [],
+  },
   async redirects() {
     return [
       {
