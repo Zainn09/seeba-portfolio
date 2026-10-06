@@ -66,11 +66,6 @@ export type Project = {
   video?: string;
   poster?: string;
   note?: string;
-  video?: {
-    mp4: string;
-    webm?: string;
-    poster: string;
-  };
 };
 
 export const projects: Project[] = [
@@ -88,10 +83,6 @@ export const projects: Project[] = [
     video: "/videos/chai-dosti-cafe.mp4?v=standalone-12fps-34s",
     poster: "/videos/chai-dosti-cafe.jpg?v=standalone-12fps-34s",
     note: "BUILT TO UNDERSTAND",
-    video: {
-      mp4: "/videos/chai-dosti-cafe.mp4",
-      poster: "/videos/poster-chai-dosti-cafe.jpg",
-    },
   },
   {
     id: "calculator",
@@ -107,10 +98,6 @@ export const projects: Project[] = [
     video: "/videos/responsive-calculator.mp4?v=standalone-12fps-30s",
     poster: "/videos/responsive-calculator.jpg?v=standalone-12fps-30s",
     note: "MADE WHILE LEARNING",
-    video: {
-      mp4: "/videos/responsive-calculator.mp4",
-      poster: "/videos/poster-responsive-calculator.jpg",
-    },
   },
   {
     id: "library",
@@ -126,10 +113,6 @@ export const projects: Project[] = [
     video: "/videos/library-management-system.mp4?v=standalone-12fps-46s",
     poster: "/videos/library-management-system.jpg?v=standalone-12fps-46s",
     note: "REAL PROJECT. REAL PRACTICE.",
-    video: {
-      mp4: "/videos/library-management-system.mp4",
-      poster: "/videos/poster-library-management-system.jpg",
-    },
   },
   {
     id: "student",
@@ -145,10 +128,6 @@ export const projects: Project[] = [
     video: "/videos/student-management-system.mp4?v=standalone-12fps-42s",
     poster: "/videos/student-management-system.jpg?v=standalone-12fps-42s",
     note: "WHAT I LEARNED",
-    video: {
-      mp4: "/videos/student-management-system.mp4",
-      poster: "/videos/poster-student-management-system.jpg",
-    },
   },
   {
     id: "bank",
@@ -164,10 +143,6 @@ export const projects: Project[] = [
     video: "/videos/bank-management-system.mp4?v=standalone-12fps-46s",
     poster: "/videos/bank-management-system.jpg?v=standalone-12fps-46s",
     note: "THE BUILD",
-    video: {
-      mp4: "/videos/bank-management-system.mp4",
-      poster: "/videos/poster-bank-management-system.jpg",
-    },
   },
   {
     id: "sneakerstore",
@@ -183,10 +158,6 @@ export const projects: Project[] = [
     video: "/videos/sneakerstore.mp4?v=standalone-12fps-50s",
     poster: "/videos/sneakerstore.jpg?v=standalone-12fps-50s",
     note: "HERO PROJECT",
-    video: {
-      mp4: "/videos/sneakerstore.mp4",
-      poster: "/videos/poster-sneakerstore.jpg",
-    },
   },
 ];
 
