@@ -62,6 +62,9 @@ export type Project = {
   description: string;
   chips: string[];
   demo: "web" | "cafe" | "calculator" | "library" | "student" | "bank" | "sneaker";
+  /** short recorded demo walkthrough (≤1 min) */
+  video?: string;
+  poster?: string;
   note?: string;
   video?: {
     mp4: string;
@@ -82,6 +85,8 @@ export const projects: Project[] = [
       "The first real website — a café page designed around warm typography and responsive layouts. It's where responsive web design, UI development, and layout thinking started to make sense.",
     chips: ["HTML5", "CSS3", "Responsive"],
     demo: "cafe",
+    video: "/videos/chai-dosti-cafe.mp4?v=standalone-12fps-34s",
+    poster: "/videos/chai-dosti-cafe.jpg?v=standalone-12fps-34s",
     note: "BUILT TO UNDERSTAND",
     video: {
       mp4: "/videos/chai-dosti-cafe.mp4",
@@ -99,6 +104,8 @@ export const projects: Project[] = [
       "A calculator designed to stay usable from a phone to a desktop. It taught me that responsive isn't about sweeping grids — it's about thinking for the smallest screen first.",
     chips: ["HTML5", "CSS3", "Grid", "Responsive"],
     demo: "calculator",
+    video: "/videos/responsive-calculator.mp4?v=standalone-12fps-30s",
+    poster: "/videos/responsive-calculator.jpg?v=standalone-12fps-30s",
     note: "MADE WHILE LEARNING",
     video: {
       mp4: "/videos/responsive-calculator.mp4",
@@ -116,6 +123,8 @@ export const projects: Project[] = [
       "A console application that manages the full life of a book record — search, issue, return, and updated state — persisted through file handling.",
     chips: ["Python", "File Handling", "OOP", "Console"],
     demo: "library",
+    video: "/videos/library-management-system.mp4?v=standalone-12fps-46s",
+    poster: "/videos/library-management-system.jpg?v=standalone-12fps-46s",
     note: "REAL PROJECT. REAL PRACTICE.",
     video: {
       mp4: "/videos/library-management-system.mp4",
@@ -133,6 +142,8 @@ export const projects: Project[] = [
       "Add, save, search, and display student records. This is where functions, data structures, and file handling stopped being concepts and became a working system.",
     chips: ["Python", "File Handling", "Data Structures", "Console"],
     demo: "student",
+    video: "/videos/student-management-system.mp4?v=standalone-12fps-42s",
+    poster: "/videos/student-management-system.jpg?v=standalone-12fps-42s",
     note: "WHAT I LEARNED",
     video: {
       mp4: "/videos/student-management-system.mp4",
@@ -150,6 +161,8 @@ export const projects: Project[] = [
       "A conceptual banking interface: create an account, deposit, withdraw, check balance. Demonstrates transaction logic and state with clearly fictional data.",
     chips: ["Python", "OOP", "State", "Console"],
     demo: "bank",
+    video: "/videos/bank-management-system.mp4?v=standalone-12fps-46s",
+    poster: "/videos/bank-management-system.jpg?v=standalone-12fps-46s",
     note: "THE BUILD",
     video: {
       mp4: "/videos/bank-management-system.mp4",
@@ -167,6 +180,8 @@ export const projects: Project[] = [
       "A modern e-commerce shoe shopping application. The most feature-rich build so far — authentication, browsing, cart, address management, and a clean Material Design interface.",
     chips: ["Java", "XML", "Firebase", "SQLite", "Android Studio"],
     demo: "sneaker",
+    video: "/videos/sneakerstore.mp4?v=standalone-12fps-50s",
+    poster: "/videos/sneakerstore.jpg?v=standalone-12fps-50s",
     note: "HERO PROJECT",
     video: {
       mp4: "/videos/sneakerstore.mp4",

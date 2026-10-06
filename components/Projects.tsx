@@ -11,6 +11,7 @@ import CafeDemo from "@/components/demos/CafeDemo";
 import CalculatorDemo from "@/components/demos/CalculatorDemo";
 import SneakerDemo from "@/components/demos/SneakerDemo";
 
+<<<<<<< HEAD
 function DemoStage({ demo, active, poster }: { demo: Project["demo"]; active: boolean; poster: string }) {
   return (
     <div className="relative h-full w-full">
@@ -36,6 +37,65 @@ function DemoStage({ demo, active, poster }: { demo: Project["demo"]; active: bo
         {demo === "calculator" && (active ? <CalculatorDemo /> : null)}
         {demo === "sneaker" && (active ? <SneakerDemo /> : null)}
       </div>
+=======
+/**
+ * A recorded, ≤1-minute walkthrough video is the primary media; a "live demo"
+ * toggle still runs the in-page interaction for anyone who wants to play with
+ * it (honours prefers-reduced-motion).
+ */
+function VideoStage({ project, playing, onToggle }: { project: Project; playing: boolean; onToggle: () => void }) {
+  return (
+    <div className="relative h-full w-full overflow-hidden rounded-xl border border-line bg-raised">
+      <video
+        className="h-full w-full object-contain"
+        src={project.video}
+        poster={project.poster}
+        controls={playing}
+        loop
+        muted
+        playsInline
+        preload={playing ? "auto" : "metadata"}
+        aria-label={`${project.name} — recorded demo walkthrough`}
+      >
+        Your browser doesn&apos;t support HTML video.
+      </video>
+      {!playing && (
+        <button
+          type="button"
+          onClick={onToggle}
+          data-cursor="WATCH"
+          className="focus-ring group absolute inset-0 flex items-center justify-center"
+          aria-label={`Play ${project.name} demo video`}
+        >
+          <span className="flex items-center gap-3">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-accent/60 bg-surface/70 text-accent backdrop-blur transition-transform group-hover:scale-105">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden>
+                <path d="M7 4.5v15l13-7.5Z" />
+              </svg>
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-soft">
+              {project.note ?? "WATCH"}
+            </span>
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+/**
+ * The live, in-page interaction (React components) shown when "live demo" is on.
+ */
+function LiveStage({ demo, playing }: { demo: Project["demo"]; playing: boolean }) {
+  return (
+    <div className="h-full w-full" aria-hidden={!playing}>
+      {demo === "library" && <Console lines={libraryScript} paused={!playing} />}
+      {demo === "student" && <Console lines={studentScript} paused={!playing} />}
+      {demo === "bank" && <Console lines={bankScript} paused={!playing} />}
+      {demo === "cafe" && (playing ? <CafeDemo /> : null)}
+      {demo === "calculator" && (playing ? <CalculatorDemo /> : null)}
+      {demo === "sneaker" && (playing ? <SneakerDemo /> : null)}
+>>>>>>> origin/arena/01a108d8-seeba-portfolio
     </div>
   );
 }
@@ -217,10 +277,15 @@ function VideoStage({
 function ProjectBlock({ project, index }: { project: Project; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-15%" });
-  const [active, setActive] = useState(false);
+  const reduce = useReducedMotion();
+  const [mode, setMode] = useState<"video" | "live">("video");
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
-    if (!inView) setActive(false);
+    if (!inView) {
+      setVideoPlaying(false);
+      setMode("video");
+    }
   }, [inView]);
 
   const hero = project.demo === "sneaker";
@@ -258,18 +323,42 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
               </span>
             ))}
           </div>
-          <div className="mt-6 flex items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <button
               type="button"
               data-cursor="WATCH"
-              onClick={() => setActive((a) => !a)}
+              onClick={() => {
+                setMode("video");
+                setVideoPlaying(true);
+              }}
               className="focus-ring group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-surface transition-transform hover:-translate-y-0.5"
             >
               <span
-                className={`inline-block h-2 w-2 rounded-full transition-colors ${active ? "bg-accent" : "bg-accent/60"}`}
+                className={`inline-block h-2 w-2 rounded-full transition-colors ${mode === "video" ? "bg-accent" : "bg-surface/40"}`}
                 aria-hidden
               />
+<<<<<<< HEAD
               {active ? "PAUSE" : project.video ? "PLAY VIDEO" : "VIEW DEMO"}
+=======
+              {mode === "video" ? "WATCH VIDEO" : "SHOW VIDEO"}
+            </button>
+            <button
+              type="button"
+              data-cursor="EXPLORE"
+              onClick={() => setMode("live")}
+              disabled={!!reduce}
+              className={`focus-ring inline-flex items-center gap-2 rounded-full border px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors ${
+                mode === "live"
+                  ? "border-accent text-accent"
+                  : "border-line text-soft hover:border-accent/60 hover:text-ink"
+              } ${reduce ? "cursor-not-allowed opacity-50" : ""}`}
+            >
+              <span
+                className={`inline-block h-2 w-2 rounded-full transition-colors ${mode === "live" ? "bg-accent" : "bg-line"}`}
+                aria-hidden
+              />
+              LIVE DEMO
+>>>>>>> origin/arena/01a108d8-seeba-portfolio
             </button>
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft/70">{project.note}</span>
           </div>
@@ -283,7 +372,19 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
         <div className={`${index % 2 ? "md:order-1" : ""}`}>
           <Tilt max={hero ? 3 : 5} className="h-full">
             <div className={hero ? "min-h-[420px] sm:min-h-[520px]" : `min-h-[300px] ${tech ? "sm:min-h-[360px]" : "sm:min-h-[340px]"}`}>
+<<<<<<< HEAD
               <VideoStage project={project} active={active} onToggle={() => setActive((a) => !a)} />
+=======
+              {mode === "video" ? (
+                <VideoStage
+                  project={project}
+                  playing={videoPlaying}
+                  onToggle={() => setVideoPlaying(true)}
+                />
+              ) : (
+                <LiveStage demo={project.demo} playing />
+              )}
+>>>>>>> origin/arena/01a108d8-seeba-portfolio
             </div>
           </Tilt>
         </div>
@@ -362,8 +463,14 @@ export default function Projects() {
           transition={{ duration: 0.8, ease: EASE }}
           className="mx-auto mt-20 max-w-xl text-center font-mono text-xs leading-relaxed tracking-wide text-soft"
         >
+<<<<<<< HEAD
           All 6 demos have valid MP4s in <code className="rounded bg-raised px-1">public/videos/</code> — 335KB-370KB, H.264,
           faststart moov, silent loop, clickable to play/pause. Click any video or PLAY VIDEO button.
+=======
+          Every project above has a short (under a minute) recorded walkthrough,
+          plus an in-page live demo you can play with. All data is fictional and
+          presented as a portfolio demonstration — no fake screenshots, no borrowed footage.
+>>>>>>> origin/arena/01a108d8-seeba-portfolio
         </motion.p>
       </div>
     </section>
