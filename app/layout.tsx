@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { ThemeProvider } from "@/lib/theme";
 import { fontDisplay, fontMono, fontSerif } from "@/lib/fonts";
 import { SITE, SEO } from "@/lib/site";
@@ -63,8 +64,17 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+<<<<<<< HEAD
         <Analytics />
         <SpeedInsights />
+=======
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4078729434854717"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+>>>>>>> origin/arena/01a108d8-seeba-portfolio
       </body>
     </html>
   );
